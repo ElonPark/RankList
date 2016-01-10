@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,15 +15,62 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4Z-5f-BqJ">
+                                <rect key="frame" x="208" y="522" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2016년 Nebula_MAC. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v5R-zR-qpa">
+                                <rect key="frame" x="20" y="522" width="335" height="71"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranklist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-nU-TsV">
+                                <rect key="frame" x="118" y="184" width="200" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="VvH-0V-6cQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="qRw-1u-Pn0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="60"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LSlist.png" translatesAutoresizingMaskIntoConstraints="NO" id="NnS-1N-4RH">
+                                <rect key="frame" x="57" y="195" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="YAP-9Z-fus"/>
+                                    <constraint firstAttribute="height" constant="45" id="nd3-gC-pc8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1018447497736954" green="0.52416852864173846" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lfT-nU-TsV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="164" id="25N-Y7-Mvm"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="v5R-zR-qpa" secondAttribute="bottom" constant="74" id="8Py-os-W5R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lfT-nU-TsV" secondAttribute="trailing" constant="41" id="DSh-N3-4lh"/>
+                            <constraint firstItem="NnS-1N-4RH" firstAttribute="centerY" secondItem="lfT-nU-TsV" secondAttribute="centerY" id="GG0-Pd-K2Z"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="NnS-1N-4RH" secondAttribute="bottom" constant="427" id="TQ4-FS-xZz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v5R-zR-qpa" secondAttribute="trailing" constant="4" id="TX6-Yf-tC4"/>
+                            <constraint firstItem="NnS-1N-4RH" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="41" id="eXF-UL-f1N"/>
+                            <constraint firstItem="v5R-zR-qpa" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="4" id="i2T-GS-U0t"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lfT-nU-TsV" secondAttribute="bottom" constant="416" id="rFc-Qc-YpC"/>
+                            <constraint firstItem="NnS-1N-4RH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="175" id="vno-Yh-zPi"/>
+                            <constraint firstItem="v5R-zR-qpa" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="502" id="wak-mI-NXz"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LSlist.png" width="140" height="140"/>
+    </resources>
 </document>

@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+        @IBOutlet var infoData: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.infoData?.text = "Data From\n SK플래닛 Open API\n영화진흥위원회 Open API "
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func unwindToMenu(sender : UIStoryboardSegue){
+        
+    }
 
+    
 }
 
