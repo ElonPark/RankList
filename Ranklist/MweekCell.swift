@@ -9,5 +9,10 @@
 import UIKit
 
 class MweekCell: UITableViewCell {
-    
+  
+    @IBOutlet var rank: UILabel!
+    @IBOutlet var movieNm: UILabel!
+    @IBOutlet var openDt: UILabel!
+    @IBOutlet var audiAcc: UILabel!
+    @IBOutlet var audiChange: UILabel!
 }

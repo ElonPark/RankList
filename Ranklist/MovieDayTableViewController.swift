@@ -41,7 +41,7 @@ class MovieDayTableViewController: UITableViewController {
             
         }
     }
-
+    
     
     //영화 API
     func callMovieAPI() {
@@ -54,6 +54,7 @@ class MovieDayTableViewController: UITableViewController {
         dateFormatter.dateFormat = "YYYYMMDD"
         
         let targetDt = dateFormatter.stringFromDate(yesterday!)
+        
         
         //영화API 호출을 위한 URI를 생성
         let apiURI = NSURL(string: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=2748a6f097987ce9a2327cb8f11240c5&targetDt=\(targetDt)")
@@ -138,13 +139,13 @@ class MovieDayTableViewController: UITableViewController {
         
         if row.rankOldAndNew == "NEW" {
             cell.rankOldAndNew?.textColor = UIColor.redColor()
-
+            
         }else if row.rankOldAndNew == "OLD" {
             cell.rankOldAndNew?.textColor = UIColor.blueColor()
         }else {
             cell.rankOldAndNew?.textColor = UIColor.grayColor()
         }
-                    cell.rankOldAndNew?.text = row.rankOldAndNew
+        cell.rankOldAndNew?.text = row.rankOldAndNew
         
         //구성된 셀을 반환함
         return cell

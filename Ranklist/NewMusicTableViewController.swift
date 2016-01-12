@@ -139,7 +139,7 @@ class NewMusicTableViewContrller : UITableViewController {
         //데이터 소스에 저장된 값을 각 레이블 변수에 할당
         cell.albumName?.text = row.albumName
         cell.issueDate?.text = row.issueDate
-        cell.countScore?.text = "\(row.totalSongCount!)곡/평점:\(row.averageScore!)"
+        cell.countScore?.text = "\(row.totalSongCount!)곡 / 평점:\(row.averageScore!)"
         cell.artistName?.text = row.artistName
         
         //구성된 셀을 반환함
