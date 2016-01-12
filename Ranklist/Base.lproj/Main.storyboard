@@ -35,7 +35,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wNh-pn-xDy" kind="show" id="OnL-b4-w1Z">
+                                    <segue destination="wNh-pn-xDy" kind="show" identifier="segue_movie" id="OnL-b4-w1Z">
                                         <segue key="commit" inheritsFrom="parent" id="KO5-Wt-hdn"/>
                                         <segue key="preview" inheritsFrom="commit" id="Epd-GP-Wxy"/>
                                     </segue>
@@ -48,7 +48,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Wc9-fU-Sb4" kind="show" id="Iuj-6t-RMt">
+                                    <segue destination="Wc9-fU-Sb4" kind="show" identifier="segue_melon" id="Iuj-6t-RMt">
                                         <segue key="commit" inheritsFrom="parent" id="06a-UB-M59"/>
                                         <segue key="preview" inheritsFrom="commit" id="YmU-OD-GPf"/>
                                     </segue>
@@ -153,8 +153,8 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-nX-3CR">
-                                            <rect key="frame" x="55" y="40" width="26" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="앨범" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-nX-3CR">
+                                            <rect key="frame" x="55" y="40" width="160" height="18"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -165,8 +165,6 @@
                                         <constraint firstItem="5hz-Vz-a5r" firstAttribute="centerY" secondItem="YRJ-jN-NHq" secondAttribute="centerY" id="8o8-6y-1IN"/>
                                         <constraint firstItem="5hz-Vz-a5r" firstAttribute="bottom" secondItem="YRJ-jN-NHq" secondAttribute="bottom" id="Caj-Sk-nnf"/>
                                         <constraint firstItem="YRJ-jN-NHq" firstAttribute="leading" secondItem="5hz-Vz-a5r" secondAttribute="trailing" constant="17" id="PB4-ex-fIk"/>
-                                        <constraint firstItem="7qc-nX-3CR" firstAttribute="leading" secondItem="DSh-Yz-DyQ" secondAttribute="trailing" constant="8" symbolic="YES" id="Pba-H6-lFQ"/>
-                                        <constraint firstItem="7qc-nX-3CR" firstAttribute="top" secondItem="5hz-Vz-a5r" secondAttribute="bottom" constant="10" id="aXJ-Hc-7V2"/>
                                         <constraint firstItem="DSh-Yz-DyQ" firstAttribute="top" secondItem="EPR-0F-a0o" secondAttribute="topMargin" constant="13" id="btl-Hc-6u1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="DSh-Yz-DyQ" secondAttribute="bottom" constant="14.5" id="doH-sa-n3N"/>
                                         <constraint firstItem="DSh-Yz-DyQ" firstAttribute="leading" secondItem="EPR-0F-a0o" secondAttribute="leadingMargin" id="zHt-x5-gqn"/>
@@ -417,7 +415,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jxw-fG-bwg" id="384-XB-Aic">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="순위증감" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-e2-Uxt">
@@ -661,7 +659,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="arb-Pi-QhW">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Wc9-fU-Sb4" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="melonVC" automaticallyAdjustsScrollViewInsets="NO" id="Wc9-fU-Sb4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="moz-ax-0Bp">
@@ -700,7 +698,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ZaE-Nj-8ae">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wNh-pn-xDy" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="movieVC" automaticallyAdjustsScrollViewInsets="NO" id="wNh-pn-xDy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="w3H-5w-E6I">
@@ -726,7 +724,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OnL-b4-w1Z"/>
-        <segue reference="YmU-OD-GPf"/>
-        <segue reference="WDd-5b-TOg"/>
+        <segue reference="Iuj-6t-RMt"/>
+        <segue reference="CHy-DJ-Fgu"/>
     </inferredMetricsTieBreakers>
 </document>
