@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -30,7 +31,10 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wNh-pn-xDy" kind="show" id="OnL-b4-w1Z"/>
+                                    <segue destination="wNh-pn-xDy" kind="show" id="OnL-b4-w1Z">
+                                        <segue key="commit" inheritsFrom="parent" id="KO5-Wt-hdn"/>
+                                        <segue key="preview" inheritsFrom="commit" id="Epd-GP-Wxy"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUv-ke-8Hf">
@@ -40,7 +44,10 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Wc9-fU-Sb4" kind="show" id="Iuj-6t-RMt"/>
+                                    <segue destination="Wc9-fU-Sb4" kind="show" id="Iuj-6t-RMt">
+                                        <segue key="commit" inheritsFrom="parent" id="06a-UB-M59"/>
+                                        <segue key="preview" inheritsFrom="commit" id="YmU-OD-GPf"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Data From" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q64-eV-9H2">
@@ -130,7 +137,10 @@
                                     <outlet property="cRank" destination="DSh-Yz-DyQ" id="HU5-PD-QCu"/>
                                     <outlet property="pastRank" destination="EPR-pu-mdC" id="UUc-lA-688"/>
                                     <outlet property="songName" destination="5hz-Vz-a5r" id="ZKU-9L-LS9"/>
-                                    <segue destination="r3y-DJ-0dd" kind="show" identifier="segue_rtmdetail" id="CHy-DJ-Fgu"/>
+                                    <segue destination="r3y-DJ-0dd" kind="show" identifier="segue_rtmdetail" id="CHy-DJ-Fgu">
+                                        <segue key="commit" inheritsFrom="parent" id="ID7-bs-09J"/>
+                                        <segue key="preview" inheritsFrom="commit" id="9jI-PS-b5h"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -156,7 +166,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npf-aW-0ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uEG-PU-WF6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2024.5" y="-820.5"/>
+            <point key="canvasLocation" x="2184.5" y="-636.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="JUc-A5-RW6">
@@ -193,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVh-RI-Axf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678.5" y="-400.5"/>
+            <point key="canvasLocation" x="2860.5" y="556.5"/>
         </scene>
         <!--실시간-->
         <scene sceneID="keJ-KD-A3x">
@@ -213,7 +223,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6K-bd-kCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555.5" y="-820.5"/>
+            <point key="canvasLocation" x="1655.5" y="-636.5"/>
         </scene>
         <!--최신 앨범-->
         <scene sceneID="c9z-a0-bBb">
@@ -276,7 +286,10 @@
                                     <outlet property="artistName" destination="6AO-2x-N1g" id="PWj-qc-iam"/>
                                     <outlet property="countScore" destination="xHf-lE-fmc" id="UQ0-kK-WIM"/>
                                     <outlet property="issueDate" destination="ipt-TV-AX4" id="gcs-k4-45d"/>
-                                    <segue destination="r3y-DJ-0dd" kind="show" identifier="segue_newdetail" id="gLA-Qi-NiR"/>
+                                    <segue destination="r3y-DJ-0dd" kind="show" identifier="segue_newdetail" id="gLA-Qi-NiR">
+                                        <segue key="commit" inheritsFrom="parent" id="eYw-Vk-Ueq"/>
+                                        <segue key="preview" inheritsFrom="commit" id="Yuj-fu-ZpH"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -301,16 +314,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qrl-lq-upb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6uz-dj-ZMZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2024.5" y="-50.5"/>
+            <point key="canvasLocation" x="1912.5" y="119.5"/>
         </scene>
         <!--일일 박스오피스-->
         <scene sceneID="Zfo-Uo-1Vq">
             <objects>
                 <tableViewController id="stR-Hy-oaa" customClass="MovieDayTableViewController" customModule="Ranklist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9aq-dV-MAf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="9aq-dV-MAf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="pDu-5q-JEu">
+                            <rect key="frame" x="0.0" y="157" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="조회 날짜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cij-LW-OA1">
+                                    <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="dayCell" rowHeight="65" id="Jxw-fG-bwg" customClass="MdayCell" customModule="Ranklist" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="65"/>
@@ -325,32 +351,43 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="순위증감" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-e2-Uxt">
+                                            <rect key="frame" x="62" y="38" width="57" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개봉일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y7-Qx-Lsx">
+                                            <rect key="frame" x="179" y="38" width="155" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="신규진입여부" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2e-b3-vHe">
+                                            <rect key="frame" x="261" y="8" width="73" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-xF-jjW">
                                             <rect key="frame" x="15" y="22" width="39" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="배우" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-e2-Uxt">
-                                            <rect key="frame" x="62" y="38" width="189" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개봉일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y7-Qx-Lsx">
-                                            <rect key="frame" x="232" y="8" width="102" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="감독" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2e-b3-vHe">
-                                            <rect key="frame" x="279" y="38" width="55" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieNm" destination="g5v-cy-OoV" id="vzN-k5-9vH"/>
+                                    <outlet property="openDt" destination="2Y7-Qx-Lsx" id="Kul-Xt-pyU"/>
+                                    <outlet property="rank" destination="rf1-xF-jjW" id="ge5-Bc-dSF"/>
+                                    <outlet property="rankInten" destination="Yhm-e2-Uxt" id="ImB-Qq-o0Z"/>
+                                    <outlet property="rankOldAndNew" destination="k2e-b3-vHe" id="bnz-Ow-G0g"/>
+                                    <segue destination="r3y-DJ-0dd" kind="show" identifier="segue_daydetail" id="0Zg-RJ-1R1">
+                                        <segue key="commit" inheritsFrom="parent" id="Pfm-ON-JfV"/>
+                                        <segue key="preview" inheritsFrom="commit" id="WDd-5b-TOg"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -369,11 +406,15 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="movieDayTable" destination="9aq-dV-MAf" id="4E1-qS-qNB"/>
+                        <outlet property="rankday" destination="cij-LW-OA1" id="Hym-9b-R8K"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0w-Ke-SAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DDG-9c-dk6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2010.5" y="758.5"/>
+            <point key="canvasLocation" x="1918.5" y="906.5"/>
         </scene>
         <!--일일-->
         <scene sceneID="Qfy-9M-bir">
@@ -391,7 +432,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrh-Gh-PGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535.5" y="758.5"/>
+            <point key="canvasLocation" x="1443.5" y="906.5"/>
         </scene>
         <!--주간 박스오피스-->
         <scene sceneID="2Ts-o7-1oO">
@@ -401,6 +442,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="gaD-se-XLI">
+                            <rect key="frame" x="0.0" y="157" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVo-Sc-5Mf">
+                                    <rect key="frame" x="168" y="7" width="39" height="30"/>
+                                    <state key="normal" title="더보기"/>
+                                    <connections>
+                                        <action selector="more:" destination="veY-6T-fan" eventType="touchUpInside" id="DFu-tm-2XU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="weekCell" rowHeight="65" id="cgV-e0-uKv" customClass="MweekCell" customModule="Ranklist" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="65"/>
@@ -415,7 +470,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="배우" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-3g-oYj">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="누적관객" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-3g-oYj">
                                             <rect key="frame" x="64" y="39" width="189" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -427,8 +482,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="감독" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="347-9r-nG8">
-                                            <rect key="frame" x="279" y="39" width="55" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="관객증감비율" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="347-9r-nG8">
+                                            <rect key="frame" x="270" y="39" width="73" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -441,6 +496,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="r3y-DJ-0dd" kind="show" identifier="segue_weekdetail" id="mOi-kd-H7X">
+                                        <segue key="commit" inheritsFrom="parent" id="1LK-1f-gD5"/>
+                                        <segue key="preview" inheritsFrom="commit" id="ACT-q6-67N"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -459,11 +520,15 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="moreBtn" destination="rVo-Sc-5Mf" id="tmL-DS-aZV"/>
+                        <outlet property="movieWeekTable" destination="cGK-ii-Xio" id="zLR-wF-VjT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiU-ec-SpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0V5-Jn-58w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2010.5" y="1563.5"/>
+            <point key="canvasLocation" x="2184.5" y="1715.5"/>
         </scene>
         <!--최신앨범-->
         <scene sceneID="i06-Js-rU3">
@@ -481,7 +546,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cL5-BJ-Xxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555.5" y="-50.5"/>
+            <point key="canvasLocation" x="1443.5" y="119.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="arb-Pi-QhW">
@@ -500,7 +565,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1M-M1-FaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975.5" y="-300.5"/>
+            <point key="canvasLocation" x="863.5" y="119.5"/>
         </scene>
         <!--주간-->
         <scene sceneID="Gqe-yN-7Q1">
@@ -520,7 +585,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q1-xd-bRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535.5" y="1563.5"/>
+            <point key="canvasLocation" x="1655.5" y="1723.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZaE-Nj-8ae">
@@ -539,7 +604,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQA-Et-yxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975.5" y="1148.5"/>
+            <point key="canvasLocation" x="863.5" y="900.5"/>
         </scene>
     </scenes>
     <resources>
@@ -550,6 +615,8 @@
         <image name="music.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CHy-DJ-Fgu"/>
+        <segue reference="OnL-b4-w1Z"/>
+        <segue reference="Iuj-6t-RMt"/>
+        <segue reference="WDd-5b-TOg"/>
     </inferredMetricsTieBreakers>
 </document>

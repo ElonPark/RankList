@@ -10,4 +10,7 @@ import UIKit
 
 class MovieWeekTableViewController: UITableViewController {
     
+    @IBOutlet var movieWeekTable: UITableView!
+    @IBOutlet var moreBtn: UIButton!
+    
 }

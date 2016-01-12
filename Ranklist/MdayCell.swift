@@ -10,4 +10,9 @@ import UIKit
 
 class MdayCell: UITableViewCell {
     
+    @IBOutlet var rank: UILabel!
+    @IBOutlet var movieNm: UILabel!
+    @IBOutlet var openDt: UILabel!
+    @IBOutlet var rankInten: UILabel!
+    @IBOutlet var rankOldAndNew: UILabel!
 }
