@@ -11,7 +11,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Types
-    
     enum ShortcutIdentifier: String {
         case First
         case Second
