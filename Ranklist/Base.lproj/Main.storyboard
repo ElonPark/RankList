@@ -122,7 +122,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hz-Vz-a5r">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hz-Vz-a5r">
                                             <rect key="frame" x="55" y="8" width="160" height="22"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,10 +161,6 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5hz-Vz-a5r" firstAttribute="leading" secondItem="DSh-Yz-DyQ" secondAttribute="trailing" constant="8" symbolic="YES" id="4km-SR-Old"/>
-                                        <constraint firstItem="5hz-Vz-a5r" firstAttribute="centerY" secondItem="YRJ-jN-NHq" secondAttribute="centerY" id="8o8-6y-1IN"/>
-                                        <constraint firstItem="5hz-Vz-a5r" firstAttribute="bottom" secondItem="YRJ-jN-NHq" secondAttribute="bottom" id="Caj-Sk-nnf"/>
-                                        <constraint firstItem="YRJ-jN-NHq" firstAttribute="leading" secondItem="5hz-Vz-a5r" secondAttribute="trailing" constant="17" id="PB4-ex-fIk"/>
                                         <constraint firstItem="DSh-Yz-DyQ" firstAttribute="top" secondItem="EPR-0F-a0o" secondAttribute="topMargin" constant="13" id="btl-Hc-6u1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="DSh-Yz-DyQ" secondAttribute="bottom" constant="14.5" id="doH-sa-n3N"/>
                                         <constraint firstItem="DSh-Yz-DyQ" firstAttribute="leading" secondItem="EPR-0F-a0o" secondAttribute="leadingMargin" id="zHt-x5-gqn"/>
@@ -226,7 +222,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-9K-cv2">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="662"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="r3y-DJ-0dd" id="8yf-uI-zjZ"/>
@@ -419,7 +415,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="순위증감" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-e2-Uxt">
-                                            <rect key="frame" x="62" y="38" width="57" height="21"/>
+                                            <rect key="frame" x="62" y="38" width="129" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
