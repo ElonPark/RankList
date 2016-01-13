@@ -415,7 +415,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="순위증감" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-e2-Uxt">
-                                            <rect key="frame" x="62" y="38" width="129" height="21"/>
+                                            <rect key="frame" x="62" y="38" width="165" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -721,6 +721,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Iuj-6t-RMt"/>
         <segue reference="OnL-b4-w1Z"/>
-        <segue reference="mOi-kd-H7X"/>
+        <segue reference="WDd-5b-TOg"/>
     </inferredMetricsTieBreakers>
 </document>

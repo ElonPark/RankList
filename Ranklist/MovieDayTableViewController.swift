@@ -88,6 +88,12 @@ class MovieDayTableViewController: UITableViewController {
                 mvo.rank = row["rank"] as? String
                 mvo.rankInten = row["rankInten"] as? String
                 
+                let aAcc = Int((row["audiAcc"] as? String)!)
+                let numberFomat = NSNumberFormatter()
+                numberFomat.numberStyle = .DecimalStyle
+                
+                mvo.audiAcc = numberFomat.stringFromNumber(aAcc!)
+                
                 let movieId = row["movieCd"] as? String
                 mvo.detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieId!)"
                 
@@ -128,13 +134,13 @@ class MovieDayTableViewController: UITableViewController {
         
         if Int(row.rankInten!) > 0 {
             cell.rankInten?.textColor = UIColor.redColor()
-            cell.rankInten?.text = "▲ \(row.rankInten!)"
+            cell.rankInten?.text = "▲ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
         }else if Int(row.rankInten!) < 0 {
             cell.rankInten?.textColor = UIColor.blueColor()
-            cell.rankInten?.text = "▼ \(row.rankInten!)"
+            cell.rankInten?.text = "▼ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
         }else {
             cell.rankInten?.textColor = UIColor.grayColor()
-            cell.rankInten?.text = "0"
+            cell.rankInten?.text = "0 / 누적: \(row.audiAcc!)명"
         }
         
         if row.rankOldAndNew == "NEW" {

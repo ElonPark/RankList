@@ -111,7 +111,14 @@ class MovieWeekTableViewController: UITableViewController {
                 mvo.movieNm = row["movieNm"] as? String
                 mvo.movieCd = row["movieCd"] as? String
                 mvo.openDt  = row["openDt"] as? String
-                mvo.audiAcc = row["audiAcc"] as? String
+
+                let aAcc = Int((row["audiAcc"] as? String)!)
+                let numberFomat = NSNumberFormatter()
+                numberFomat.numberStyle = .DecimalStyle
+
+                mvo.audiAcc = numberFomat.stringFromNumber(aAcc!)
+                
+                
                 mvo.audiChange = row["audiChange"] as? String
                 mvo.rank = row["rank"] as? String
                 
@@ -164,7 +171,7 @@ class MovieWeekTableViewController: UITableViewController {
             cell.audiChange?.text = "\(row.audiChange)%"
         }
         
-        cell.audiAcc?.text = "누적관객: \(row.audiAcc!)"
+        cell.audiAcc?.text = "누적: \(row.audiAcc!)명"
         //구성된 셀을 반환함
         return cell
     }
