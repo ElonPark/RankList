@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -25,48 +24,35 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2016년 Nebula_MAC. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v5R-zR-qpa">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="  Copyright © 2016년 Nebula_MAC. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v5R-zR-qpa">
                                 <rect key="frame" x="16" y="573" width="343" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranklist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-nU-TsV">
-                                <rect key="frame" x="145" y="212" width="146" height="45"/>
+                                <rect key="frame" x="116.5" y="197" width="142" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LSlist.png" translatesAutoresizingMaskIntoConstraints="NO" id="NnS-1N-4RH">
-                                <rect key="frame" x="88" y="212" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="B0a-eW-fCI"/>
-                                    <constraint firstAttribute="width" secondItem="NnS-1N-4RH" secondAttribute="height" multiplier="1:1" id="R6H-ru-KAJ"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.1018447497736954" green="0.52416852864173846" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="v5R-zR-qpa" secondAttribute="bottom" constant="74" id="PKW-hb-goJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lfT-nU-TsV" secondAttribute="trailing" constant="68" id="SkI-7H-lmo"/>
+                            <constraint firstItem="lfT-nU-TsV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RFT-Jd-9bA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v5R-zR-qpa" secondAttribute="trailing" id="Wxa-gx-hqd"/>
-                            <constraint firstItem="NnS-1N-4RH" firstAttribute="top" secondItem="lfT-nU-TsV" secondAttribute="top" id="Zlt-ge-eo0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v5R-zR-qpa" secondAttribute="leading" id="aT6-xB-zjv"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v5R-zR-qpa" secondAttribute="leading" id="fCA-0v-yoB"/>
-                            <constraint firstItem="lfT-nU-TsV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="192" id="ld5-so-I14"/>
-                            <constraint firstItem="NnS-1N-4RH" firstAttribute="centerY" secondItem="lfT-nU-TsV" secondAttribute="centerY" id="nBa-yJ-LBn"/>
-                            <constraint firstItem="NnS-1N-4RH" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="72" id="sQP-75-3AZ"/>
-                            <constraint firstItem="lfT-nU-TsV" firstAttribute="leading" secondItem="NnS-1N-4RH" secondAttribute="trailing" constant="12" id="yEO-hB-klo"/>
+                            <constraint firstItem="lfT-nU-TsV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="177" id="mJj-7K-UfC"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="lfT-nU-TsV" secondAttribute="bottom" constant="434" id="nMJ-aT-fkA"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.5" y="374.5"/>
+            <point key="canvasLocation" x="51.5" y="373.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LSlist.png" width="140" height="140"/>
-    </resources>
 </document>
