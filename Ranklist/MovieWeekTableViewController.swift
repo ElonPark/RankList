@@ -56,7 +56,8 @@ class MovieWeekTableViewController: UITableViewController {
         
         switch weekDay {
         case 1:
-            return dateFormatter.stringFromDate(NSDate())
+            sunday = calendar.dateByAddingUnit(.Day, value: -7, toDate: NSDate(), options: [])
+            return dateFormatter.stringFromDate(sunday!)
         case 2:
             sunday = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
             return dateFormatter.stringFromDate(sunday!)
@@ -75,6 +76,7 @@ class MovieWeekTableViewController: UITableViewController {
         case 7:
             sunday = calendar.dateByAddingUnit(.Day, value: -6, toDate: NSDate(), options: [])
             return dateFormatter.stringFromDate(sunday!)
+            
         default:
             return nil
         }//switch end
