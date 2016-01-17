@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTl-au-dgT">
-                                <rect key="frame" x="56" y="124" width="262" height="50"/>
+                                <rect key="frame" x="91" y="124" width="193" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Fz-jH-jU6"/>
                                 </constraints>
@@ -55,25 +55,26 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Data From" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q64-eV-9H2">
-                                <rect key="frame" x="94" y="528" width="187" height="96"/>
+                                <rect key="frame" x="94" y="450" width="187" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="1p5-sS-kKq"/>
+                                </constraints>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q64-eV-9H2" secondAttribute="bottom" constant="43" id="03F-z9-Vwy"/>
-                            <constraint firstItem="q64-eV-9H2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="508" id="47p-ex-MHc"/>
+                            <constraint firstItem="OUv-ke-8Hf" firstAttribute="top" secondItem="HTl-au-dgT" secondAttribute="bottom" constant="117" id="1KJ-SE-QKc"/>
+                            <constraint firstItem="q64-eV-9H2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="78" id="3o4-jY-cp5"/>
+                            <constraint firstItem="HTl-au-dgT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="104" id="DyA-S2-SaS"/>
                             <constraint firstItem="PBV-f8-Aji" firstAttribute="top" secondItem="OUv-ke-8Hf" secondAttribute="bottom" constant="26" id="GlY-gU-553"/>
-                            <constraint firstItem="HTl-au-dgT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="T9G-L1-32M"/>
+                            <constraint firstItem="q64-eV-9H2" firstAttribute="top" secondItem="PBV-f8-Aji" secondAttribute="bottom" constant="73" id="NRY-C2-RjN"/>
                             <constraint firstItem="HTl-au-dgT" firstAttribute="centerX" secondItem="OUv-ke-8Hf" secondAttribute="centerX" id="UNU-cQ-HEE"/>
-                            <constraint firstItem="HTl-au-dgT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="104" id="Yu5-Y1-pwe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q64-eV-9H2" secondAttribute="trailing" constant="78" id="dSO-Yv-xsp"/>
-                            <constraint firstItem="q64-eV-9H2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="78" id="kpW-Lq-OK9"/>
-                            <constraint firstItem="OUv-ke-8Hf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="291" id="ox6-Jw-1P4"/>
-                            <constraint firstItem="HTl-au-dgT" firstAttribute="centerX" secondItem="q64-eV-9H2" secondAttribute="centerX" id="xMq-GY-YCk"/>
+                            <constraint firstItem="q64-eV-9H2" firstAttribute="centerX" secondItem="PBV-f8-Aji" secondAttribute="centerX" id="fXW-jH-O6O"/>
+                            <constraint firstItem="q64-eV-9H2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w1X-Vw-iyg"/>
                             <constraint firstItem="HTl-au-dgT" firstAttribute="centerX" secondItem="PBV-f8-Aji" secondAttribute="centerX" id="zke-JS-85t"/>
                         </constraints>
                     </view>
@@ -221,8 +222,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-9K-cv2">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-9K-cv2">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="662"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="r3y-DJ-0dd" id="8yf-uI-zjZ"/>
