@@ -49,7 +49,7 @@ class MusicTableViewController: UITableViewController {
     //더보기 버튼
     @IBAction func more(sender: AnyObject) {
         //더 많은 노래 목록을 불러오기 위해
-        self.page++
+        self.page += 1
         
         //영화차트 API를 호출한다.
         self.callMusicAPI()
@@ -118,6 +118,13 @@ class MusicTableViewController: UITableViewController {
             }
             
         } catch{
+			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .Alert)
+			let cancelAction = UIAlertAction(title: "확인", style: .Cancel, handler: {(_) in
+				exit(0)
+			})
+			alert.addAction(cancelAction)
+			self.presentViewController(alert, animated: true, completion: nil)
+
             NSLog("Parse Error!!")
         }//catch end
         

@@ -46,40 +46,37 @@ class MovieWeekTableViewController: UITableViewController {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYYMMDD"
-        
+		
         let calendar = NSCalendar.currentCalendar()
+	
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.Weekday, fromDate: NSDate())
         let weekDay = myComponents.weekday
         
-        let sunday : NSDate?
-        
+		let dateValue : Int
+		
         switch weekDay {
         case 1:
-            sunday = calendar.dateByAddingUnit(.Day, value: -7, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
+			dateValue = -7
         case 2:
-            sunday = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
+			dateValue = -1
         case 3:
-            sunday = calendar.dateByAddingUnit(.Day, value: -2, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
+			dateValue = -2
         case 4:
-            sunday = calendar.dateByAddingUnit(.Day, value: -3, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
+			dateValue = -3
         case 5:
-            sunday = calendar.dateByAddingUnit(.Day, value: -4, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
+			dateValue = -4
         case 6:
-            sunday = calendar.dateByAddingUnit(.Day, value: -5, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
+			dateValue = -5
         case 7:
-            sunday = calendar.dateByAddingUnit(.Day, value: -6, toDate: NSDate(), options: [])
-            return dateFormatter.stringFromDate(sunday!)
-            
+			dateValue = -6
         default:
             return nil
         }//switch end
+		let sunday = calendar.dateByAddingUnit(.Day, value: dateValue, toDate: NSDate(), options: [])
+		let targetDt = dateFormatter.stringFromDate(sunday!)
+		print("targetDt = \(targetDt)")
+		return targetDt
     }//getDayOfWeekString end
     
     func callMovieAPI() {
@@ -134,6 +131,12 @@ class MovieWeekTableViewController: UITableViewController {
             self.rankday?.text = "조회날짜 : \(showRange!) (월 ~ 금)"
             
         } catch{
+			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .Alert)
+			let cancelAction = UIAlertAction(title: "확인", style: .Cancel, handler: {(_) in
+				self.performSegueWithIdentifier("segue_melon", sender: nil)
+			})
+			alert.addAction(cancelAction)
+			self.presentViewController(alert, animated: true, completion: nil)
             NSLog("Parse Error!!")
         }//catch end
         
