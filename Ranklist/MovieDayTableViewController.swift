@@ -51,7 +51,7 @@ class MovieDayTableViewController: UITableViewController {
         //어제 날짜로 변경한다.
         let yesterday = calendar.dateByAddingUnit(.Day, value: -1, toDate: NSDate(), options: [])
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "YYYYMMDD"
+        dateFormatter.dateFormat = "yyyyMMdd"
         
         let targetDt = dateFormatter.stringFromDate(yesterday!)
         
