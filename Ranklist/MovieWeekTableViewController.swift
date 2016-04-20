@@ -45,7 +45,7 @@ class MovieWeekTableViewController: UITableViewController {
     func getDayOfWeekString() -> String? {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "YYYYMMDD"
+        dateFormatter.dateFormat = "yyyyMMdd"
         
         let calendar = NSCalendar.currentCalendar()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
