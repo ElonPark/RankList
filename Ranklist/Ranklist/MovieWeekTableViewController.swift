@@ -45,7 +45,7 @@ class MovieWeekTableViewController: UITableViewController {
     func getDayOfWeekString() -> String? {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "YYYYMMDD"
+		dateFormatter.dateFormat = "yyyyMMdd"
 		
         let calendar = NSCalendar.currentCalendar()
 	
@@ -75,7 +75,7 @@ class MovieWeekTableViewController: UITableViewController {
         }//switch end
 		let sunday = calendar.dateByAddingUnit(.Day, value: dateValue, toDate: NSDate(), options: [])
 		let targetDt = dateFormatter.stringFromDate(sunday!)
-		print("targetDt = \(targetDt)")
+		//print("targetDt = \(targetDt)")
 		return targetDt
     }//getDayOfWeekString end
     
