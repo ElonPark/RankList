@@ -223,33 +223,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-9K-cv2">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="662"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="r3y-DJ-0dd" id="8yf-uI-zjZ"/>
-                                </connections>
-                            </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fpg-QN-tkV">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-u4-CrC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="faL-kF-VRt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="faL-kF-VRt" firstAttribute="top" secondItem="3RD-u4-CrC" secondAttribute="top" id="APr-b9-8CV"/>
+                                    <constraint firstAttribute="trailing" secondItem="faL-kF-VRt" secondAttribute="trailing" id="VAo-Uu-l7K"/>
+                                    <constraint firstItem="faL-kF-VRt" firstAttribute="leading" secondItem="3RD-u4-CrC" secondAttribute="leading" id="XkW-Nb-AyG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fpg-QN-tkV" firstAttribute="centerY" secondItem="Et0-IT-Olx" secondAttribute="centerY" id="9jH-ws-w3B"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dJC-9K-cv2" secondAttribute="trailing" constant="-20" id="Jh8-T8-6x4"/>
-                            <constraint firstItem="fpg-QN-tkV" firstAttribute="centerX" secondItem="Et0-IT-Olx" secondAttribute="centerX" id="NVW-as-T53"/>
-                            <constraint firstItem="Ffv-Yd-AxA" firstAttribute="top" secondItem="dJC-9K-cv2" secondAttribute="bottom" constant="-44" id="RXj-1I-07f"/>
-                            <constraint firstItem="dJC-9K-cv2" firstAttribute="leading" secondItem="Et0-IT-Olx" secondAttribute="leadingMargin" constant="-20" id="gV8-7X-ucI"/>
-                            <constraint firstItem="dJC-9K-cv2" firstAttribute="top" secondItem="29R-tS-JWy" secondAttribute="bottom" constant="-64" id="gew-a5-aef"/>
+                            <constraint firstItem="3RD-u4-CrC" firstAttribute="top" secondItem="29R-tS-JWy" secondAttribute="bottom" id="3j2-e8-SKt"/>
+                            <constraint firstItem="Ffv-Yd-AxA" firstAttribute="top" secondItem="3RD-u4-CrC" secondAttribute="bottom" id="Q8B-8v-lXJ"/>
+                            <constraint firstAttribute="trailing" secondItem="3RD-u4-CrC" secondAttribute="trailing" id="SvO-V4-g2L"/>
+                            <constraint firstItem="3RD-u4-CrC" firstAttribute="leading" secondItem="Et0-IT-Olx" secondAttribute="leading" id="yJz-KQ-DJD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="80V-Y8-Skd"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="navibar" destination="80V-Y8-Skd" id="eqj-uH-xcq"/>
-                        <outlet property="spinner" destination="fpg-QN-tkV" id="cM8-X7-4hD"/>
-                        <outlet property="wv" destination="dJC-9K-cv2" id="cMW-dP-h8c"/>
+                        <outlet property="progressView" destination="faL-kF-VRt" id="bk5-xn-GTO"/>
+                        <outlet property="wkUIView" destination="3RD-u4-CrC" id="FK5-cM-Opo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVh-RI-Axf" userLabel="First Responder" sceneMemberID="firstResponder"/>
