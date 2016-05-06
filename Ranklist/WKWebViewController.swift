@@ -25,8 +25,6 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	//목록에서 영화 데이터를 받을 변수
 	var mvo : MovieVO? = nil
 	
-	var portrait = false //화면이 회전상태인지 확인하기 위함
-	
 	deinit {
 		self.wkWV.removeObserver(self, forKeyPath: "estimatedProgress")
 	}
@@ -40,7 +38,9 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	
 	//뷰가 나타났으면 wk웹뷰의 프레임 크기를 설정한다.
 	override func viewDidAppear(animated: Bool) {
-		self.wkWV.frame = CGRectMake(0, 0, self.wkUIView.frame.width, self.wkUIView.frame.height)
+		//뷰 위아래에 네비게이션바와 탭바 메뉴 때문에 값을 이렇게 설정한다.
+		//self.wkWV.frame = CGRectMake(0,-64, self.wkUIView.frame.width, self.wkUIView.frame.height+114)
+		self.checkOrientate()
 	}
 	
 	override func viewDidLoad() {
@@ -60,17 +60,9 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		let ori = UIApplication.sharedApplication().statusBarOrientation
 		
 		if ori == UIInterfaceOrientation.Portrait {
-			self.wkWV.frame = CGRectMake(0, 0, wkWV.frame.width, wkWV.frame.height)
-			portrait = false
+			self.wkWV.frame = CGRectMake(0,-64, self.wkUIView.frame.width, self.wkUIView.frame.height+114)
 		} else {
-			if portrait {
-				self.wkWV.frame = CGRectMake(0, 0, self.wkWV.frame.width, self.wkWV.frame.height)
-				portrait = true
-			}else { //화면 눕혀져있지 않았으면 상단바 높이 추가
-				self.wkWV.frame = CGRectMake(0, 0, self.wkWV.frame.width, self.wkWV.frame.height+20)
-				portrait = true
-			}
-			
+			self.wkWV.frame = CGRectMake(0,-32, self.wkUIView.frame.width, self.wkUIView.frame.height+80)
 		}
 	}
 	

@@ -226,31 +226,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-u4-CrC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="faL-kF-VRt">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-dL-IxR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="faL-kF-VRt" firstAttribute="top" secondItem="3RD-u4-CrC" secondAttribute="top" id="APr-b9-8CV"/>
-                                    <constraint firstAttribute="trailing" secondItem="faL-kF-VRt" secondAttribute="trailing" id="VAo-Uu-l7K"/>
-                                    <constraint firstItem="faL-kF-VRt" firstAttribute="leading" secondItem="3RD-u4-CrC" secondAttribute="leading" id="XkW-Nb-AyG"/>
+                                    <constraint firstItem="8qT-dL-IxR" firstAttribute="top" secondItem="3RD-u4-CrC" secondAttribute="top" id="4dM-DT-tM3"/>
+                                    <constraint firstItem="8qT-dL-IxR" firstAttribute="leading" secondItem="3RD-u4-CrC" secondAttribute="leading" id="bnD-0N-5Ey"/>
+                                    <constraint firstAttribute="trailing" secondItem="8qT-dL-IxR" secondAttribute="trailing" id="kwD-Ut-quM"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3RD-u4-CrC" firstAttribute="top" secondItem="29R-tS-JWy" secondAttribute="bottom" id="3j2-e8-SKt"/>
-                            <constraint firstItem="Ffv-Yd-AxA" firstAttribute="top" secondItem="3RD-u4-CrC" secondAttribute="bottom" id="Q8B-8v-lXJ"/>
-                            <constraint firstAttribute="trailing" secondItem="3RD-u4-CrC" secondAttribute="trailing" id="SvO-V4-g2L"/>
-                            <constraint firstItem="3RD-u4-CrC" firstAttribute="leading" secondItem="Et0-IT-Olx" secondAttribute="leading" id="yJz-KQ-DJD"/>
+                            <constraint firstItem="Ffv-Yd-AxA" firstAttribute="top" secondItem="3RD-u4-CrC" secondAttribute="bottom" id="0mE-Ga-DIE"/>
+                            <constraint firstItem="3RD-u4-CrC" firstAttribute="top" secondItem="29R-tS-JWy" secondAttribute="bottom" id="Mwd-6Q-jVX"/>
+                            <constraint firstItem="3RD-u4-CrC" firstAttribute="leading" secondItem="Et0-IT-Olx" secondAttribute="leading" id="Zd6-9f-0Nj"/>
+                            <constraint firstAttribute="trailing" secondItem="3RD-u4-CrC" secondAttribute="trailing" id="brY-Lx-HPr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="80V-Y8-Skd"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="navibar" destination="80V-Y8-Skd" id="eqj-uH-xcq"/>
-                        <outlet property="progressView" destination="faL-kF-VRt" id="bk5-xn-GTO"/>
+                        <outlet property="progressView" destination="8qT-dL-IxR" id="UyS-Fe-6Yl"/>
                         <outlet property="wkUIView" destination="3RD-u4-CrC" id="FK5-cM-Opo"/>
                     </connections>
                 </viewController>
