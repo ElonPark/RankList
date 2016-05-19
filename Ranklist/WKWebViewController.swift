@@ -18,7 +18,7 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	@IBOutlet weak var progressView: UIProgressView!
 	
 	var wkWV : WKWebView = WKWebView()
-
+	
 	//목록에서 음악 데이터를 받을 변수
 	var miz : MusicVO? = nil
 	
@@ -47,7 +47,7 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		wkWV.UIDelegate = self
 		wkWV.navigationDelegate = self
 		//UIView에 wk웹뷰, 프로그래스뷰 부착
-		self.wkUIView.insertSubview(wkWV, belowSubview: self.progressView)
+		self.wkUIView.insertSubview(self.wkWV, belowSubview: self.progressView)
 		
 		//프로그래스뷰를 위한 옵저버
 		self.wkWV.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
@@ -58,11 +58,12 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	//회전할때 UIView 크기를 가져와서 WK웹뷰의 크기로 설정
 	private func checkOrientate() {
 		let ori = UIApplication.sharedApplication().statusBarOrientation
-		
+		var wkFrame = self.wkWV.frame
+
 		if ori == UIInterfaceOrientation.Portrait {
-			self.wkWV.frame = CGRectMake(0,-64, self.wkUIView.frame.width, self.wkUIView.frame.height+114)
+			wkFrame = CGRectMake(0,-64, wkFrame.width, wkFrame.height+114)
 		} else {
-			self.wkWV.frame = CGRectMake(0,-32, self.wkUIView.frame.width, self.wkUIView.frame.height+80)
+			wkFrame = CGRectMake(0,-32, wkFrame.width, wkFrame.height+80)
 		}
 	}
 	
