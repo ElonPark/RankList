@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,33 +16,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTl-au-dgT">
-                                <rect key="frame" x="91" y="124" width="193" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8Fz-jH-jU6"/>
-                                </constraints>
+                                <rect key="frame" x="63" y="136" width="193" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBV-f8-Aji">
-                                <rect key="frame" x="129" y="347" width="117" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                <state key="normal" title="박스오피스" image="movie.png">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wNh-pn-xDy" kind="show" identifier="segue_movie" id="OnL-b4-w1Z">
-                                        <segue key="commit" inheritsFrom="parent" id="KO5-Wt-hdn"/>
-                                        <segue key="preview" inheritsFrom="commit" id="Epd-GP-Wxy"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUv-ke-8Hf">
-                                <rect key="frame" x="137" y="291" width="100" height="30"/>
+                                <rect key="frame" x="110" y="269" width="100" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="멜론차트" image="music.png">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,31 +39,50 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Data From" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q64-eV-9H2">
-                                <rect key="frame" x="94" y="450" width="187" height="66"/>
+                                <rect key="frame" x="94" y="502" width="132" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="1p5-sS-kKq"/>
+                                    <constraint firstAttribute="height" constant="66" id="NSL-Wf-RRR"/>
+                                    <constraint firstAttribute="width" constant="132" id="ZUf-Tw-pcR"/>
                                 </constraints>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1p5-sS-kKq"/>
+                                    </mask>
+                                </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBV-f8-Aji">
+                                <rect key="frame" x="101" y="314" width="117" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <state key="normal" title="박스오피스" image="movie.png">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wNh-pn-xDy" kind="show" identifier="segue_movie" id="OnL-b4-w1Z">
+                                        <segue key="commit" inheritsFrom="parent" id="KO5-Wt-hdn"/>
+                                        <segue key="preview" inheritsFrom="commit" id="Epd-GP-Wxy"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OUv-ke-8Hf" firstAttribute="top" secondItem="HTl-au-dgT" secondAttribute="bottom" constant="117" id="1KJ-SE-QKc"/>
-                            <constraint firstItem="q64-eV-9H2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="78" id="3o4-jY-cp5"/>
-                            <constraint firstItem="HTl-au-dgT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="104" id="DyA-S2-SaS"/>
-                            <constraint firstItem="PBV-f8-Aji" firstAttribute="top" secondItem="OUv-ke-8Hf" secondAttribute="bottom" constant="26" id="GlY-gU-553"/>
-                            <constraint firstItem="q64-eV-9H2" firstAttribute="top" secondItem="PBV-f8-Aji" secondAttribute="bottom" constant="73" id="NRY-C2-RjN"/>
-                            <constraint firstItem="HTl-au-dgT" firstAttribute="centerX" secondItem="OUv-ke-8Hf" secondAttribute="centerX" id="UNU-cQ-HEE"/>
-                            <constraint firstItem="q64-eV-9H2" firstAttribute="centerX" secondItem="PBV-f8-Aji" secondAttribute="centerX" id="fXW-jH-O6O"/>
-                            <constraint firstItem="q64-eV-9H2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w1X-Vw-iyg"/>
-                            <constraint firstItem="HTl-au-dgT" firstAttribute="centerX" secondItem="PBV-f8-Aji" secondAttribute="centerX" id="zke-JS-85t"/>
+                            <constraint firstItem="OUv-ke-8Hf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5eh-3A-9iy"/>
+                            <constraint firstItem="q64-eV-9H2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Hj-Vv-Z1b"/>
+                            <constraint firstItem="PBV-f8-Aji" firstAttribute="top" secondItem="OUv-ke-8Hf" secondAttribute="bottom" constant="15" id="E9c-rY-ovY"/>
+                            <constraint firstItem="OUv-ke-8Hf" firstAttribute="top" secondItem="HTl-au-dgT" secondAttribute="bottom" constant="85" id="Jao-tF-IHS"/>
+                            <constraint firstItem="HTl-au-dgT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K19-hb-nej"/>
+                            <constraint firstItem="q64-eV-9H2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iNx-4O-sjJ"/>
+                            <constraint firstItem="PBV-f8-Aji" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oHm-cw-4hD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q64-eV-9H2" secondAttribute="bottom" id="sW9-7p-bYe"/>
+                            <constraint firstItem="OUv-ke-8Hf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wjs-Tf-wVm"/>
                         </constraints>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="infoData" destination="q64-eV-9H2" id="Gpk-c8-520"/>
                     </connections>
@@ -209,7 +212,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npf-aW-0ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uEG-PU-WF6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2184.5" y="-636.5"/>
+            <point key="canvasLocation" x="1912.5" y="-760.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="JUc-A5-RW6">
@@ -256,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVh-RI-Axf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2860.5" y="556.5"/>
+            <point key="canvasLocation" x="2708.5" y="360.5"/>
         </scene>
         <!--실시간-->
         <scene sceneID="keJ-KD-A3x">
@@ -276,7 +279,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6K-bd-kCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1655.5" y="-636.5"/>
+            <point key="canvasLocation" x="1443.5" y="-760.5"/>
         </scene>
         <!--최신 앨범-->
         <scene sceneID="c9z-a0-bBb">
@@ -636,7 +639,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiU-ec-SpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0V5-Jn-58w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2184.5" y="1723.5"/>
+            <point key="canvasLocation" x="1918.5" y="1695.5"/>
         </scene>
         <!--최신앨범-->
         <scene sceneID="i06-Js-rU3">
@@ -693,7 +696,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q1-xd-bRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1655.5" y="1723.5"/>
+            <point key="canvasLocation" x="1443.5" y="1695.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZaE-Nj-8ae">
@@ -725,6 +728,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Iuj-6t-RMt"/>
         <segue reference="OnL-b4-w1Z"/>
-        <segue reference="gLA-Qi-NiR"/>
+        <segue reference="CHy-DJ-Fgu"/>
     </inferredMetricsTieBreakers>
 </document>
