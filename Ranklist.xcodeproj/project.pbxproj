@@ -253,15 +253,18 @@
 					335DDEF11C3FCDE800750514 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = FF89HDESAD;
+						LastSwiftMigration = 0810;
 					};
 					335DDF051C3FCDE900750514 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = FF89HDESAD;
+						LastSwiftMigration = 0810;
 						TestTargetID = 335DDEF11C3FCDE800750514;
 					};
 					335DDF101C3FCDE900750514 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = FF89HDESAD;
+						LastSwiftMigration = 0810;
 						TestTargetID = 335DDEF11C3FCDE800750514;
 					};
 				};
@@ -482,6 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.blog.tjddns1222.Ranklist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos9.3;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -495,6 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.blog.tjddns1222.Ranklist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos9.3;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -506,6 +511,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.blog.tjddns1222.RanklistTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ranklist.app/Ranklist";
 			};
 			name = Debug;
@@ -518,6 +524,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.blog.tjddns1222.RanklistTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ranklist.app/Ranklist";
 			};
 			name = Release;
@@ -529,6 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.blog.tjddns1222.RanklistUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Ranklist;
 				USES_XCTRUNNER = YES;
 			};
@@ -541,6 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.blog.tjddns1222.RanklistUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Ranklist;
 				USES_XCTRUNNER = YES;
 			};
