@@ -1,0 +1,6 @@
+framework module Pods_Ranklist {
+  umbrella header "Pods-Ranklist-umbrella.h"
+
+  export *
+  module * { export * }
+}

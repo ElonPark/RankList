@@ -18,14 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: Initializers
         init?(fullType: String) {
-            guard let last = fullType.componentsSeparatedByString(".").last else { return nil }
+            guard let last = fullType.components(separatedBy: ".").last else { return nil }
             
             self.init(rawValue: last)
         }
         
         // MARK: Properties
         var type: String {
-            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.rawValue)"
+            return Bundle.main.bundleIdentifier! + ".\(self.rawValue)"
         }
     }
     
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Saved shortcut item used as a result of an app launch, used later when app is activated.
     var launchedShortcutItem: UIApplicationShortcutItem?
     
-    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         var handled = false
         
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: Application Life Cycle
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         guard let shortcut = launchedShortcutItem else { return }
         
         handleShortCutItem(shortcut)
@@ -70,13 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         launchedShortcutItem = nil
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
         
         // If a shortcut was launched, display its information and take the appropriate action
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             
             launchedShortcutItem = shortcutItem
             
@@ -89,11 +89,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem,
-        completionHandler: (Bool) -> Void) {
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem,
+        completionHandler: @escaping (Bool) -> Void) {
             completionHandler(handleShortcut(shortcutItem))
     }
-    private func handleShortcut(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    fileprivate func handleShortcut(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         
         let shortcutType = shortcutItem.type
         guard let shortcutIdentifier = ShortcutIdentifier(fullType: shortcutType) else {
@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return selectForIdentifier(shortcutIdentifier)
     }
     
-    private func selectForIdentifier(identifier: ShortcutIdentifier) -> Bool {
+    fileprivate func selectForIdentifier(_ identifier: ShortcutIdentifier) -> Bool {
         
         guard let vController = self.window?.rootViewController as? ViewController else {
             return false
@@ -113,17 +113,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch (identifier) {
         case .First:
             
-            let me = vController.storyboard!.instantiateViewControllerWithIdentifier("melonVC")
-            me.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-            vController.dismissViewControllerAnimated(true, completion: nil)
-            vController.presentViewController(me, animated: true, completion: nil)
+            let me = vController.storyboard!.instantiateViewController(withIdentifier: "melonVC")
+            me.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+            vController.dismiss(animated: true, completion: nil)
+            vController.present(me, animated: true, completion: nil)
             
             return true
         case .Second:
-            let mo = vController.storyboard!.instantiateViewControllerWithIdentifier("movieVC")
-            mo.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-            vController.dismissViewControllerAnimated(true, completion: nil)
-            vController.presentViewController(mo, animated: true, completion: nil)
+            let mo = vController.storyboard!.instantiateViewController(withIdentifier: "movieVC")
+            mo.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+            vController.dismiss(animated: true, completion: nil)
+            vController.present(mo, animated: true, completion: nil)
             return true
         }
     }

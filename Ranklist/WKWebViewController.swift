@@ -31,65 +31,65 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	
 	
 	//뷰가 나타날때 회전상태를 확인하여 크기를 가져옴
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.checkOrientate()
 	}
 	
 	//뷰가 나타났으면 wk웹뷰의 프레임 크기를 설정한다.
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		//뷰 위아래에 네비게이션바와 탭바 메뉴 때문에 값을 이렇게 설정한다.
 		//self.wkWV.frame = CGRectMake(0,-64, self.wkUIView.frame.width, self.wkUIView.frame.height+114)
 		self.checkOrientate()
 	}
 	
 	override func viewDidLoad() {
-		wkWV.UIDelegate = self
+		wkWV.uiDelegate = self
 		wkWV.navigationDelegate = self
 		//UIView에 wk웹뷰, 프로그래스뷰 부착
 		self.wkUIView.insertSubview(self.wkWV, belowSubview: self.progressView)
 		
 		//프로그래스뷰를 위한 옵저버
-		self.wkWV.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+		self.wkWV.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
 		self.urlLoadFunc()
 	}//DidLoad end
 	
 	
 	//회전할때 UIView 크기를 가져와서 WK웹뷰의 크기로 설정
-	private func checkOrientate() {
-		let ori = UIApplication.sharedApplication().statusBarOrientation
+	fileprivate func checkOrientate() {
+		let ori = UIApplication.shared.statusBarOrientation
 		var wkFrame = self.wkWV.frame
 
-		if ori == UIInterfaceOrientation.Portrait {
-			wkFrame = CGRectMake(0,-64, wkFrame.width, wkFrame.height+114)
+		if ori == UIInterfaceOrientation.portrait {
+			wkFrame = CGRect(x: 0,y: -64, width: wkFrame.width, height: wkFrame.height+114)
 		} else {
-			wkFrame = CGRectMake(0,-32, wkFrame.width, wkFrame.height+80)
+			wkFrame = CGRect(x: 0,y: -32, width: wkFrame.width, height: wkFrame.height+80)
 		}
 	}
 	
-	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-		coordinator.animateAlongsideTransition({ (UIViewControllerTransitionCoordinatorContext) -> Void in
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
 			self.checkOrientate()
 			}, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in })
 	}
 	
 	//로딩 끝나면 프로그래뷰 없어짐
-	func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		progressView.setProgress(0.0, animated: false)
 	}
 	
 	//프로그래뷰 애니메이션
-	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<()>) {
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		if (keyPath! == "estimatedProgress") {
-			progressView.hidden = self.wkWV.estimatedProgress == 1
+			progressView.isHidden = self.wkWV.estimatedProgress == 1
 			progressView.setProgress(Float(wkWV.estimatedProgress), animated: true)
 		}
 	}
 	
 	
 	//웹 뷰가 웹페이지 로드를 실패 했을때
-	func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
+	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
 		//경고창 형식으로 오류 메시지를 표시해준다.
 		errorAlertFunc("loading error = \(error)")
 	}
@@ -100,9 +100,9 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 			
 			//예외 처리
 			if let url = self.miz?.detail {
-				if let urlObj = NSURL(string: url){
-					let req = NSURLRequest(URL: urlObj)
-					self.wkWV.loadRequest(req)
+				if let urlObj = URL(string: url){
+					let req = URLRequest(url: urlObj)
+					self.wkWV.load(req)
 					
 				}else { //URL 형식이 잘못 되었을 경우에 대한 예외처리
 					//경고창 형식으로 오류 메시지를 표시해준다.
@@ -117,9 +117,9 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 			
 			//예외 처리
 			if let url = self.mvo?.detail {
-				if let urlObj = NSURL(string: url){
-					let req = NSURLRequest(URL: urlObj)
-					self.wkWV.loadRequest(req)
+				if let urlObj = URL(string: url){
+					let req = URLRequest(url: urlObj)
+					self.wkWV.load(req)
 				}else { //URL 형식이 잘못 되었을 경우에 대한 예외처리
 					//경고창 형식으로 오류 메시지를 표시해준다.
 					errorAlertFunc("잘못된 URL입니다")
@@ -131,57 +131,58 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		} //if mvo end
 	}//urlLoadFunc end
 	
-	func errorAlertFunc(msg : String){
+	func errorAlertFunc(_ msg : String){
 		//경고창 형식으로 오류 메시지를 표시해준다.
-		let alert = UIAlertController(title: "오류", message: msg, preferredStyle: .Alert)
+		let alert = UIAlertController(title: "오류", message: msg, preferredStyle: .alert)
 		
-		let cancelAction = UIAlertAction(title: "확인", style: .Cancel) { (_) in //익명함수 사용
+		let cancelAction = UIAlertAction(title: "확인", style: .cancel) { (_) in //익명함수 사용
 			//이전 페이지로 돌려보낸다.
-			self.navigationController?.popToRootViewControllerAnimated(true)
+//self.navigationController?.popToRootViewController(animated: true)
+			self.dismiss(animated: true, completion: nil)
 		}//클로저 end
 		alert.addAction(cancelAction)
-		self.presentViewController(alert, animated: false, completion: nil)
+		self.present(alert, animated: false, completion: nil)
 	}
 	
-	func webView(webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: (() -> Void)) {
+	func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: (@escaping () -> Void)) {
 		//print("webView:\(webView) runJavaScriptAlertPanelWithMessage:\(message) initiatedByFrame:\(frame) completionHandler:\(completionHandler)")
 		
-		let alertController = UIAlertController(title: frame.request.URL?.host, message: message, preferredStyle: .Alert)
-		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+		let alertController = UIAlertController(title: frame.request.url?.host, message: message, preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 			completionHandler()
 		}))
-		self.presentViewController(alertController, animated: true, completion: nil)
+		self.present(alertController, animated: true, completion: nil)
 	}
 	
-	func webView(webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: ((Bool) -> Void)) {
+	func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: (@escaping (Bool) -> Void)) {
 		//print("webView:\(webView) runJavaScriptConfirmPanelWithMessage:\(message) initiatedByFrame:\(frame) completionHandler:\(completionHandler)")
 		
-		let alertController = UIAlertController(title: frame.request.URL?.host, message: message, preferredStyle: .Alert)
-		alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { action in
+		let alertController = UIAlertController(title: frame.request.url?.host, message: message, preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
 			completionHandler(false)
 		}))
-		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 			completionHandler(true)
 		}))
-		self.presentViewController(alertController, animated: true, completion: nil)
+		self.present(alertController, animated: true, completion: nil)
 	}
 	
-	func webView(webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: (String?) -> Void) {
+	func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
 		//print("webView:\(webView) runJavaScriptTextInputPanelWithPrompt:\(prompt) defaultText:\(defaultText) initiatedByFrame:\(frame) completionHandler:\(completionHandler)")
 		
-		let alertController = UIAlertController(title: frame.request.URL?.host, message: prompt, preferredStyle: .Alert)
+		let alertController = UIAlertController(title: frame.request.url?.host, message: prompt, preferredStyle: .alert)
 		weak var alertTextField: UITextField!
-		alertController.addTextFieldWithConfigurationHandler { textField in
+		alertController.addTextField { textField in
 			textField.text = defaultText
 			alertTextField = textField
 		}
-		alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { action in
+		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
 			completionHandler(nil)
 		}))
-		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+		alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 			completionHandler(alertTextField.text)
 		}))
-		self.presentViewController(alertController, animated: true, completion: nil)
+		self.present(alertController, animated: true, completion: nil)
 	}
 	
 }

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func unwindToMenu(sender : UIStoryboardSegue){
+    @IBAction func unwindToMenu(_ sender : UIStoryboardSegue){
         
     }
     
