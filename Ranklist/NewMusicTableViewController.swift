@@ -90,14 +90,14 @@ class NewMusicTableViewContrller : UITableViewController {
 				case .success(let data) :
 					let jsonData = JSON(data)
 					let melon = jsonData["melon"].dictionaryValue
-					let songs = melon["songs"]?.dictionaryValue
-					let song =  songs?["song"]?.arrayValue
+					let albums = melon["albums"]?.dictionaryValue
+					let album =  albums?["album"]?.arrayValue
 					
 					//테이블 뷰 리스트를 구성할 데이터 형식
 					var mzi : MusicVO
 					// Iterator 처리를 하면서 API 데이터를 MovieVO객체에 저장한다.
-					if let songValue = song {
-						for row in songValue {
+					if let albumValue = album {
+						for row in albumValue {
 							print(row)
 							mzi = MusicVO()
 							
