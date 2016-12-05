@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -74,111 +77,164 @@ class NewMusicTableViewContrller : UITableViewController {
         
         //영화차트 API를 호출한다.
         self.callMusicAPI()
-        
-        //데이터를 다시 읽어오도록 테이블 뷰를 갱신
-        self.newMusicTable.reloadData()
     }
     
     
     //음악 API
-    func callMusicAPI() {
-//        //멜론API 호출을 위한 URI를 생성
-//        let apiURI = URL(string:"http://apis.skplanetx.com/melon/newreleases/albums?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
-//        
-//        //REST API를 호출
-//        let apidata : Data? = try? Data(contentsOf: apiURI!)
-//        
-//        //데이터 전송 결과를 로그로 출력(확인용)
-//        //NSLog("\n <more> API Result = %@", NSString(data: apidata!, encoding: NSUTF8StringEncoding)!)
-//        
-//        //JSON 객체를 파싱하여 NSDictionary 객체로 받음
-//        do{
-//            let apiDictionary = try JSONSerialization.jsonObject(with: apidata!, options: []) as! NSDictionary
-//            
-//            //데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
-//            let melon = apiDictionary["melon"] as! NSDictionary
-//            let albums = melon["albums"] as! NSDictionary
-//            let album = albums["album"] as! NSArray
-//            
-//            //테이블 뷰 리스트를 구성할 데이터 형식
-//            var mzi : MusicVO
-//            
-//            // Iterator 처리를 하면서 API 데이터를 MusicVO객체에 저장한다.
-//            for row in album {
-//                mzi = MusicVO()
-//                
-//                mzi.albumName      = row["albumName"] as? String
-//                mzi.artistName     = row["artists"] as? String
-//                mzi.issueDate      = row["issueDate"] as? String
-//                mzi.totalSongCount = row["totalSongCount"] as? Int
-//                mzi.averageScore   = row["averageScore"] as? String
-//                
-//                let artists = row["repArtists"] as! NSDictionary
-//                let artist = artists["artist"] as! NSArray
-//                
-//                for ro2 in artist {
-//                    mzi.artistName = ro2["artistName"] as? String
-//                }
-//                
-//                let albumId = row["albumId"] as? Int
-//                mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId!)"
-//                
-//                self.list.append(mzi)
-//                
-//            }
-//            
-//            
-//            //전체 데이터 카운트를 얻는다.
-//            let totalCount = melon["totalPages"] as? Int
-//            
-//            //totalCount가 읽어온 데이터 크기와 같거나 클 경우 더보기 버튼을 막는다.
-//            if(self.list.count >= totalCount) {
-//                self.moreBtn.isHidden = true
-//            }
-//            
-//        } catch{
-//			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .alert)
-//			let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-//				exit(0)
-//			})
-//			alert.addAction(cancelAction)
-//			self.present(alert, animated: true, completion: nil)
-//
-//            NSLog("Parse Error!!")
-//        }//catch end
-        
-    }//API end
-
-    //=======================================테이블 뷰 구성=====================================================
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
-        return self.list.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //주어진 행에 맞는 데이터 소스를 가져옴
-        let row = self.list[indexPath.row]
-        
-        //NSLog("result = \(row.songName!), row index = \(indexPath.row)")
-        
-        /*여기서부터 변경 내용 시작*/
-        //as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
-        let cell = tableView.dequeueReusableCell(withIdentifier: "nmCell") as! NewreleaseCell!
-        
-        
-        //데이터 소스에 저장된 값을 각 레이블 변수에 할당
-        cell?.albumName?.text = row.albumName
-        cell?.issueDate?.text = row.issueDate
-        cell?.countScore?.text = "\(row.totalSongCount!)곡 / 평점:\(row.averageScore!)"
-        cell?.artistName?.text = row.artistName
-        
-        //구성된 셀을 반환함
-        return cell!
-    }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //NSLog("Touch Table Row at %d", indexPath.row)
-    }
-    
-
+	func callMusicAPI() {
+		let apiURI = URL(string:"http://apis.skplanetx.com/melon/newreleases/albums?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
+		
+		Alamofire.request(apiURI!)
+			.responseJSON { (reponse) in
+				switch reponse.result {
+				case .success(let data) :
+					let jsonData = JSON(data)
+					let melon = jsonData["melon"].dictionaryValue
+					let songs = melon["songs"]?.dictionaryValue
+					let song =  songs?["song"]?.arrayValue
+					
+					//테이블 뷰 리스트를 구성할 데이터 형식
+					var mzi : MusicVO
+					// Iterator 처리를 하면서 API 데이터를 MovieVO객체에 저장한다.
+					if let songValue = song {
+						for row in songValue {
+							print(row)
+							mzi = MusicVO()
+							
+							mzi.albumName      = row["albumName"].stringValue
+							mzi.artistName     = row["artists"].stringValue
+							mzi.issueDate      = row["issueDate"].stringValue
+							mzi.totalSongCount = row["totalSongCount"].intValue
+							mzi.averageScore   = row["averageScore"].stringValue
+							
+							let artists = row["repArtists"].dictionaryValue
+							let artist = artists["artist"]?.arrayValue.map({$0["artistName"].stringValue})
+							for ro2 in artist! {
+								mzi.artistName = ro2
+							}
+							
+							let albumId = row["albumId"].intValue
+							mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId)"
+							self.list.append(mzi)
+						}
+					}
+					//전체 데이터 카운트를 얻는다.
+					let totalCount = 100
+					
+					//totalCount가 읽어온 데이터 크기와 같거나 클 경우 더보기 버튼을 막는다.
+					if(self.list.count >= totalCount) {
+						self.moreBtn.isHidden = true
+					}
+					
+					//데이터를 다시 읽어오도록 테이블 뷰를 갱신
+					self.newMusicTable.reloadData()
+					
+				case .failure(let error) :
+					print(error)
+					let alert  = UIAlertController(title: "경고", message: "API 에러", preferredStyle: .alert)
+					let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
+						exit(0)
+					})
+					alert.addAction(cancelAction)
+					self.present(alert, animated: true, completion: nil)
+				}
+		}
+		//        //멜론API 호출을 위한 URI를 생성
+		//        let apiURI = URL(string:"http://apis.skplanetx.com/melon/newreleases/albums?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
+		//
+		//        //REST API를 호출
+		//        let apidata : Data? = try? Data(contentsOf: apiURI!)
+		//
+		//        //데이터 전송 결과를 로그로 출력(확인용)
+		//        //NSLog("\n <more> API Result = %@", NSString(data: apidata!, encoding: NSUTF8StringEncoding)!)
+		//
+		//        //JSON 객체를 파싱하여 NSDictionary 객체로 받음
+		//        do{
+		//            let apiDictionary = try JSONSerialization.jsonObject(with: apidata!, options: []) as! NSDictionary
+		//
+		//            //데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
+		//            let melon = apiDictionary["melon"] as! NSDictionary
+		//            let albums = melon["albums"] as! NSDictionary
+		//            let album = albums["album"] as! NSArray
+		//
+		//            //테이블 뷰 리스트를 구성할 데이터 형식
+		//            var mzi : MusicVO
+		//
+		//            // Iterator 처리를 하면서 API 데이터를 MusicVO객체에 저장한다.
+		//            for row in album {
+		//                mzi = MusicVO()
+		//
+		//                mzi.albumName      = row["albumName"] as? String
+		//                mzi.artistName     = row["artists"] as? String
+		//                mzi.issueDate      = row["issueDate"] as? String
+		//                mzi.totalSongCount = row["totalSongCount"] as? Int
+		//                mzi.averageScore   = row["averageScore"] as? String
+		//
+		//                let artists = row["repArtists"] as! NSDictionary
+		//                let artist = artists["artist"] as! NSArray
+		//
+		//                for ro2 in artist {
+		//                    mzi.artistName = ro2["artistName"] as? String
+		//                }
+		//
+		//                let albumId = row["albumId"] as? Int
+		//                mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId!)"
+		//
+		//                self.list.append(mzi)
+		//
+		//            }
+		//
+		//
+		//            //전체 데이터 카운트를 얻는다.
+		//            let totalCount = melon["totalPages"] as? Int
+		//
+		//            //totalCount가 읽어온 데이터 크기와 같거나 클 경우 더보기 버튼을 막는다.
+		//            if(self.list.count >= totalCount) {
+		//                self.moreBtn.isHidden = true
+		//            }
+		//
+		//        } catch{
+		//			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .alert)
+		//			let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
+		//				exit(0)
+		//			})
+		//			alert.addAction(cancelAction)
+		//			self.present(alert, animated: true, completion: nil)
+		//
+		//            NSLog("Parse Error!!")
+		//        }//catch end
+	}//API end
+	
+		//=======================================테이블 뷰 구성=====================================================
+		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+			//테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
+			return self.list.count
+		}
+		
+		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+			//주어진 행에 맞는 데이터 소스를 가져옴
+			let row = self.list[indexPath.row]
+			
+			//NSLog("result = \(row.songName!), row index = \(indexPath.row)")
+			
+			/*여기서부터 변경 내용 시작*/
+			//as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
+			let cell = tableView.dequeueReusableCell(withIdentifier: "nmCell") as! NewreleaseCell!
+			
+			
+			//데이터 소스에 저장된 값을 각 레이블 변수에 할당
+			cell?.albumName?.text = row.albumName
+			cell?.issueDate?.text = row.issueDate
+			cell?.countScore?.text = "\(row.totalSongCount!)곡 / 평점:\(row.averageScore!)"
+			cell?.artistName?.text = row.artistName
+			
+			//구성된 셀을 반환함
+			return cell!
+		}
+		
+		override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+			//NSLog("Touch Table Row at %d", indexPath.row)
+		}
+		
+		
 }

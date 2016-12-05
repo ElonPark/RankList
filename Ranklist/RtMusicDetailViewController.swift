@@ -39,7 +39,6 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	//뷰가 나타났으면 wk웹뷰의 프레임 크기를 설정한다.
 	override func viewDidAppear(_ animated: Bool) {
 		//뷰 위아래에 네비게이션바와 탭바 메뉴 때문에 값을 이렇게 설정한다.
-		//self.wkWV.frame = CGRectMake(0,-64, self.wkUIView.frame.width, self.wkUIView.frame.height+114)
 		self.checkOrientate()
 	}
 	
@@ -51,6 +50,7 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		
 		//프로그래스뷰를 위한 옵저버
 		self.wkWV.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+		wkWV.frame = wkUIView.frame
 		self.urlLoadFunc()
 	}//DidLoad end
 	
@@ -58,13 +58,14 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	//회전할때 UIView 크기를 가져와서 WK웹뷰의 크기로 설정
 	fileprivate func checkOrientate() {
 		let ori = UIApplication.shared.statusBarOrientation
-		var wkFrame = self.wkWV.frame
-
+		var wkFrame = self.wkUIView.bounds
+		
 		if ori == UIInterfaceOrientation.portrait {
-			wkFrame = CGRect(x: 0,y: -64, width: wkFrame.width, height: wkFrame.height+114)
+			wkFrame = CGRect(x: 0,y: -64, width: (wkFrame.width), height: (wkFrame.height)+114)
 		} else {
-			wkFrame = CGRect(x: 0,y: -32, width: wkFrame.width, height: wkFrame.height+80)
+			wkFrame = CGRect(x: 0,y: -32, width: (wkFrame.width), height: (wkFrame.height)+80)
 		}
+		self.wkWV.frame = wkFrame
 	}
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -72,6 +73,14 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
 			self.checkOrientate()
 			}, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in })
+	}
+	
+	func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+		wkWV.reload()
+	}
+	
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		decisionHandler(WKNavigationActionPolicy.allow)
 	}
 	
 	//로딩 끝나면 프로그래뷰 없어짐
@@ -83,7 +92,7 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		if (keyPath! == "estimatedProgress") {
 			progressView.isHidden = self.wkWV.estimatedProgress == 1
-			progressView.setProgress(Float(wkWV.estimatedProgress), animated: true)
+			progressView.setProgress(Float((wkWV.estimatedProgress)), animated: true)
 		}
 	}
 	
@@ -97,13 +106,11 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	func urlLoadFunc(){
 		if miz != nil && mvo == nil {
 			self.navibar.title = self.miz?.songName
-			
 			//예외 처리
 			if let url = self.miz?.detail {
 				if let urlObj = URL(string: url){
 					let req = URLRequest(url: urlObj)
 					self.wkWV.load(req)
-					
 				}else { //URL 형식이 잘못 되었을 경우에 대한 예외처리
 					//경고창 형식으로 오류 메시지를 표시해준다.
 					errorAlertFunc("잘못된 URL입니다")

@@ -63,11 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Application Life Cycle
     func applicationDidBecomeActive(_ application: UIApplication) {
-        guard let shortcut = launchedShortcutItem else { return }
-        
-        handleShortCutItem(shortcut)
-        
-        launchedShortcutItem = nil
+//        guard let shortcut = launchedShortcutItem else { return }
+//        handleShortCutItem(shortcut)
+//        launchedShortcutItem = nil
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
