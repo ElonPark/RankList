@@ -12,27 +12,27 @@ import SwiftyJSON
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
+//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//  switch (lhs, rhs) {
+//  case let (l?, r?):
+//    return l < r
+//  case (nil, _?):
+//    return true
+//  default:
+//    return false
+//  }
+//}
+//
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
+//fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//  switch (lhs, rhs) {
+//  case let (l?, r?):
+//    return l > r
+//  default:
+//    return rhs < lhs
+//  }
+//}
 
 
 
@@ -43,18 +43,18 @@ class MusicTableViewController: UITableViewController {
     
     //http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=2649434&menuId=54020101
     
-    //테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수( = [MusicVO]())
+    // MARK: - 테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수
     var list = Array<MusicVO>()
     
-    //현재까지 읽어온 데이터 정보
+    // MARK: - 현재까지 읽어온 데이터 정보
     var page = 1
     
-    //초기 화면
+    // MARK: - 초기 화면
     override func viewDidLoad() {
         self.callMusicAPI()
     }//viewDidLoad end
     
-    //=============================세그웨이=====================================
+    // MARK: - 세그웨이
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //실행된 세그웨이의 식별자가  segue_rtmdetail이라면
         if(segue.identifier == "segue_rtmdetail") {
@@ -74,7 +74,7 @@ class MusicTableViewController: UITableViewController {
     }
     
     
-    //더보기 버튼
+    // MARK: - 더보기 버튼
     @IBAction func more(_ sender: AnyObject) {
         //더 많은 노래 목록을 불러오기 위해
         self.page += 1
@@ -84,7 +84,7 @@ class MusicTableViewController: UITableViewController {
 		
     }//more end
     
-    //음악 API
+    // MARK: - 음악 API
 	func callMusicAPI() {
 		
 		//멜론API 호출을 위한 URI를 생성
@@ -217,12 +217,13 @@ class MusicTableViewController: UITableViewController {
 		*/
 	}//API end
 	
-    //=======================================테이블 뷰 구성=====================================================
+    // MARK: - 테이블 뷰 구성
+	// MARK: - 테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
         return self.list.count
     }
 	
+	// MARK: - 테이블 뷰 셀 내용 구성
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //주어진 행에 맞는 데이터 소스를 가져옴
         let row = self.list[indexPath.row]
@@ -249,11 +250,11 @@ class MusicTableViewController: UITableViewController {
         
         let ranNum : Int?
         
-        if row.pastRank > row.currentRank {
+        if row.pastRank! > row.currentRank! {
             cell?.pastRank?.textColor = UIColor.red
             ranNum = row.pastRank! - row.currentRank!
             cell?.pastRank?.text = "▲ \(ranNum!)"
-        }else if row.pastRank < row.currentRank {
+        }else if row.pastRank! < row.currentRank! {
             cell?.pastRank?.textColor = UIColor.blue
             ranNum = row.currentRank! - row.pastRank!
             cell?.pastRank?.text = "▼ \(ranNum!)"
@@ -266,8 +267,8 @@ class MusicTableViewController: UITableViewController {
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //NSLog("Touch Table Row at %d", indexPath.row)
-    }
-    
+//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        //NSLog("Touch Table Row at %d", indexPath.row)
+//    }
+//    
 }//class end

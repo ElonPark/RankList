@@ -8,3 +8,11 @@ target 'Ranklist' do
  pod 'SwiftyJSON'
  pod 'CuckooAlert'
 end
+
+
+target 'RankWidget' do
+ pod 'Alamofire'
+ pod 'AlamofireImage'
+ pod 'SwiftyJSON'
+ pod 'CuckooAlert'
+end

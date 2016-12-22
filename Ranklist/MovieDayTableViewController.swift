@@ -57,7 +57,7 @@ class MovieDayTableViewController: UITableViewController {
 		//실행된 세그웨이의 식별자가  segue_rtmdetail이라면
 		if(segue.identifier == "segue_daydetail") {
 			//sender 인자를 캐스팅하여  테이블 셀 객체로 변환한다.
-			let cell = sender as! MdayCell
+			guard let cell = sender as? MdayCell else { return }
 			
 			//세그웨이를 실행한 객체 정보를 이용하여 몇 번째 행이 선택되었는지 확인한다.
 			let path  = self.movieDayTable.indexPath(for: cell)
@@ -99,7 +99,7 @@ class MovieDayTableViewController: UITableViewController {
 				//테이블 뷰 리스트를 구성할 데이터 형식
 				var mvo : MovieVO
 				
-				if let movieList = dailyBoxOfficeList{
+				guard let movieList = dailyBoxOfficeList else { return }
 					for movieValue in movieList {
 						mvo = MovieVO()
 						mvo.movieNm = movieValue["movieNm"].stringValue
@@ -120,7 +120,7 @@ class MovieDayTableViewController: UITableViewController {
 						
 						self.list.append(mvo)
 					}
-				}
+				
 				
 				let showRange = boxOfficeResult["showRange"]?.stringValue
 				self.rankday?.text = "조회날짜 : \(showRange!)"
@@ -206,8 +206,7 @@ class MovieDayTableViewController: UITableViewController {
 		
 		
 		//as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
-		let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell") as! MdayCell!
-		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell") as? MdayCell!
 		
 		//데이터 소스에 저장된 값을 각 레이블 변수에 할당
 		cell?.movieNm?.text = row.movieNm

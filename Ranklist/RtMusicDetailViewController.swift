@@ -51,6 +51,7 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		//프로그래스뷰를 위한 옵저버
 		self.wkWV.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
 		wkWV.frame = wkUIView.frame
+		self.wkWV.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		self.urlLoadFunc()
 	}//DidLoad end
 	

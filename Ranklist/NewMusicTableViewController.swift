@@ -12,75 +12,77 @@ import SwiftyJSON
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
+//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//	switch (lhs, rhs) {
+//	case let (l?, r?):
+//		return l < r
+//	case (nil, _?):
+//		return true
+//	default:
+//		return false
+//	}
+//}
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
-fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
-}
+//fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//	switch (lhs, rhs) {
+//	case let (l?, r?):
+//		return l >= r
+//	default:
+//		return !(lhs < rhs)
+//	}
+//}
 
 class NewMusicTableViewContrller : UITableViewController {
-    
-    @IBOutlet var newMusicTable: UITableView!
-    @IBOutlet var moreBtn: UIButton!
-    
-    //테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수( = [MusicVO]())
-    var list = Array<MusicVO>()
-    
-    //현재까지 읽어온 데이터 정보
-    var page = 1
-
-    //초기화면
-    override func viewDidLoad() {
-        self.callMusicAPI()
-    }
-    
-    //=============================세그웨이=====================================
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //실행된 세그웨이의 식별자가  segue_rtmdetail이라면
-        if(segue.identifier == "segue_newdetail") {
-            //sender 인자를 캐스팅하여  테이블 셀 객체로 변환한다.
-            let cell = sender as! NewreleaseCell
-            
-            //세그웨이를 실행한 객체 정보를 이용하여 몇 번째 행이 선택되었는지 확인한다.
-            let path  = self.newMusicTable.indexPath(for: cell)
-            
-            //API 음악 데이터 배열 중에서 선택된 행에 대한 데이터를 얻는다.
-            let param = self.list[path!.row]
-            
-            //세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 miz 변수에 데이터를 연결해준다.
-            (segue.destination as? RtMusicDetailViewController)?.miz = param
-            
-        }
-    }
-
-    
-    //더보기 버튼
-    @IBAction func more(_ sender: AnyObject) {
-        //더 많은 노래 목록을 불러오기 위해
-        self.page += 1
-        
-        //영화차트 API를 호출한다.
-        self.callMusicAPI()
-    }
-    
-    
-    //음악 API
+	
+	@IBOutlet var newMusicTable: UITableView!
+	@IBOutlet var moreBtn: UIButton!
+	
+	// MARK: - 테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수
+	var list = Array<MusicVO>()
+	
+	// MARK: - 현재까지 읽어온 데이터 페이지 정보
+	var page = 1
+	
+	
+	// MARK: - VC 초기화
+	override func viewDidLoad() {
+		self.callMusicAPI()
+	}
+	
+	// MARK: - 세그웨이
+	//=============================세그웨이=====================================
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		//실행된 세그웨이의 식별자가  segue_rtmdetail이라면
+		if(segue.identifier == "segue_newdetail") {
+			//sender 인자를 캐스팅하여  테이블 셀 객체로 변환한다.
+			let cell = sender as! NewreleaseCell
+			
+			//세그웨이를 실행한 객체 정보를 이용하여 몇 번째 행이 선택되었는지 확인한다.
+			let path  = self.newMusicTable.indexPath(for: cell)
+			
+			//API 음악 데이터 배열 중에서 선택된 행에 대한 데이터를 얻는다.
+			let param = self.list[path!.row]
+			
+			//세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 miz 변수에 데이터를 연결해준다.
+			(segue.destination as? RtMusicDetailViewController)?.miz = param
+			
+		}
+	}
+	
+	
+	// MARK: - 더보기 버튼
+	@IBAction func more(_ sender: AnyObject) {
+		//더 많은 노래 목록을 불러오기 위해
+		self.page += 1
+		
+		//영화차트 API를 호출한다.
+		self.callMusicAPI()
+	}
+	
+	
+	// MARK: - 음악 API
 	func callMusicAPI() {
 		let apiURI = URL(string:"http://apis.skplanetx.com/melon/newreleases/albums?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
 		
@@ -205,36 +207,36 @@ class NewMusicTableViewContrller : UITableViewController {
 		//        }//catch end
 	}//API end
 	
-		//=======================================테이블 뷰 구성=====================================================
-		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-			//테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
-			return self.list.count
-		}
+	// MARK: - 테이블 뷰 구성
+	
+	// MARK: - 테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.list.count
+	}
+	
+	// MARK: -  테이블뷰의 셀 내용 정의
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		//주어진 행에 맞는 데이터 소스를 가져옴
+		let row = self.list[indexPath.row]
 		
-		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-			//주어진 행에 맞는 데이터 소스를 가져옴
-			let row = self.list[indexPath.row]
-			
-			//NSLog("result = \(row.songName!), row index = \(indexPath.row)")
-			
-			/*여기서부터 변경 내용 시작*/
-			//as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
-			let cell = tableView.dequeueReusableCell(withIdentifier: "nmCell") as! NewreleaseCell!
-			
-			
-			//데이터 소스에 저장된 값을 각 레이블 변수에 할당
-			cell?.albumName?.text = row.albumName
-			cell?.issueDate?.text = row.issueDate
-			cell?.countScore?.text = "\(row.totalSongCount!)곡 / 평점:\(row.averageScore!)"
-			cell?.artistName?.text = row.artistName
-			
-			//구성된 셀을 반환함
-			return cell!
-		}
+		//NSLog("result = \(row.songName!), row index = \(indexPath.row)")
 		
-		override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-			//NSLog("Touch Table Row at %d", indexPath.row)
-		}
+		/*여기서부터 변경 내용 시작*/
+		//as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
+		let cell = tableView.dequeueReusableCell(withIdentifier: "nmCell") as! NewreleaseCell!
 		
 		
+		//데이터 소스에 저장된 값을 각 레이블 변수에 할당
+		cell?.albumName?.text = row.albumName
+		cell?.issueDate?.text = row.issueDate
+		cell?.countScore?.text = "\(row.totalSongCount!)곡 / 평점:\(row.averageScore!)"
+		cell?.artistName?.text = row.artistName
+		
+		//구성된 셀을 반환함
+		return cell!
+	}
+	
+	//		override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+	//			//NSLog("Touch Table Row at %d", indexPath.row)
+	//		}
 }

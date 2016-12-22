@@ -147,7 +147,7 @@ class MovieWeekTableViewController: UITableViewController {
 				}
 				
 				let showRange = boxOfficeResult["showRange"]?.stringValue
-				self.rankday?.text = "조회날짜 : \(showRange!) (월 ~ 금)"
+				self.rankday?.text = "조회날짜 : \(showRange!)"
 				self.movieWeekTable.reloadData()
 				
 			case .failure(let error):
