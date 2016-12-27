@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,28 +18,98 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3i-Kf-mYt">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9K-az-Vwv">
-                                <rect key="frame" x="157" y="8" width="61" height="30"/>
+                                <rect key="frame" x="165" y="3" width="45" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="61" id="GPI-G7-KNF"/>
-                                    <constraint firstAttribute="height" constant="30" id="WCV-ex-r0y"/>
+                                    <constraint firstAttribute="width" constant="45" id="GPI-G7-KNF"/>
+                                    <constraint firstAttribute="height" constant="15" id="WCV-ex-r0y"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                 <state key="normal" title="Reload"/>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3i-Kf-mYt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="172"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rtmCell" rowHeight="65" id="iTZ-KL-Psm" customClass="MusicCell" customModule="RankWidget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iTZ-KL-Psm" id="L2P-dl-Kqi">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="OyJ-yK-qjO">
+                                                    <rect key="frame" x="55" y="12" width="150" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Vjc-5T-nOP">
+                                                    <rect key="frame" x="270" y="9" width="70" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="n3y-Jq-a3e"/>
+                                                        <constraint firstAttribute="height" constant="21" id="vtY-KX-gqU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXY-Hs-6Sy">
+                                                    <rect key="frame" x="8" y="21" width="39" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="39" id="IHm-2R-sPY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과거순위" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="ODU-u4-L55">
+                                                    <rect key="frame" x="262" y="42" width="49" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="앨범" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnh-qU-HiQ">
+                                                    <rect key="frame" x="55" y="38" width="160" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TXY-Hs-6Sy" secondAttribute="bottom" constant="14.5" id="8vJ-eT-WyC"/>
+                                                <constraint firstItem="TXY-Hs-6Sy" firstAttribute="top" secondItem="L2P-dl-Kqi" secondAttribute="topMargin" constant="13" id="OH3-gJ-7lj"/>
+                                                <constraint firstItem="TXY-Hs-6Sy" firstAttribute="leading" secondItem="L2P-dl-Kqi" secondAttribute="leadingMargin" id="mS6-ha-wrj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="Vjc-5T-nOP" firstAttribute="top" secondItem="iTZ-KL-Psm" secondAttribute="top" constant="9" id="1WZ-og-NoU"/>
+                                            <constraint firstAttribute="trailing" secondItem="ODU-u4-L55" secondAttribute="trailing" constant="64" id="GJK-Yf-q9U"/>
+                                            <constraint firstAttribute="bottom" secondItem="ODU-u4-L55" secondAttribute="bottom" constant="6" id="Xyy-V1-2jU"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vjc-5T-nOP" secondAttribute="trailing" constant="35" id="a7l-QX-D0e"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="albumName" destination="Hnh-qU-HiQ" id="f9Y-xI-gfI"/>
+                                            <outlet property="artist" destination="Vjc-5T-nOP" id="RVS-mL-cMk"/>
+                                            <outlet property="cRank" destination="TXY-Hs-6Sy" id="iP6-qf-mnN"/>
+                                            <outlet property="pastRank" destination="ODU-u4-L55" id="Dcw-yp-641"/>
+                                            <outlet property="songName" destination="OyJ-yK-qjO" id="p0u-Jg-7kD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="f9K-az-Vwv" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="AlD-nL-AvP"/>
-                            <constraint firstItem="f9K-az-Vwv" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="GcT-Pd-QtT"/>
+                            <constraint firstItem="f9K-az-Vwv" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="3" id="GcT-Pd-QtT"/>
                             <constraint firstItem="d3i-Kf-mYt" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="bx4-f1-YUH"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="d3i-Kf-mYt" secondAttribute="bottom" id="c4M-Cn-V6W"/>
-                            <constraint firstItem="d3i-Kf-mYt" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="44" id="ncD-Yo-xLJ"/>
+                            <constraint firstItem="d3i-Kf-mYt" firstAttribute="top" secondItem="f9K-az-Vwv" secondAttribute="bottom" constant="10" id="jKm-FZ-LJ5"/>
                             <constraint firstAttribute="trailing" secondItem="d3i-Kf-mYt" secondAttribute="trailing" id="x1y-rj-7vP"/>
                         </constraints>
                     </view>
@@ -47,7 +118,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="100"/>
+                    <size key="freeformSize" width="375" height="200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
