@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0806CADD626F3EC89A4338C85BDFF62F"
+               BlueprintIdentifier = "F159D990E802517F3C09E15D860F172E"
                BuildableName = "Pods_RankWidget.framework"
                BlueprintName = "Pods-RankWidget"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0806CADD626F3EC89A4338C85BDFF62F"
+            BlueprintIdentifier = "F159D990E802517F3C09E15D860F172E"
             BuildableName = "Pods_RankWidget.framework"
             BlueprintName = "Pods-RankWidget"
             ReferencedContainer = "container:Pods.xcodeproj">

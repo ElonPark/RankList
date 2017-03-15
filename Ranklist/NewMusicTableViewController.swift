@@ -116,7 +116,8 @@ class NewMusicTableViewContrller : UITableViewController {
 							}
 							
 							let albumId = row["albumId"].intValue
-							mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId)"
+							mzi.detail = "http://m.app.melon.com/album/music.htm?albumId=\(albumId)"
+								//"http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId)"
 							self.list.append(mzi)
 						}
 					}
@@ -141,70 +142,6 @@ class NewMusicTableViewContrller : UITableViewController {
 					self.present(alert, animated: true, completion: nil)
 				}
 		}
-		//        //멜론API 호출을 위한 URI를 생성
-		//        let apiURI = URL(string:"http://apis.skplanetx.com/melon/newreleases/albums?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
-		//
-		//        //REST API를 호출
-		//        let apidata : Data? = try? Data(contentsOf: apiURI!)
-		//
-		//        //데이터 전송 결과를 로그로 출력(확인용)
-		//        //NSLog("\n <more> API Result = %@", NSString(data: apidata!, encoding: NSUTF8StringEncoding)!)
-		//
-		//        //JSON 객체를 파싱하여 NSDictionary 객체로 받음
-		//        do{
-		//            let apiDictionary = try JSONSerialization.jsonObject(with: apidata!, options: []) as! NSDictionary
-		//
-		//            //데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
-		//            let melon = apiDictionary["melon"] as! NSDictionary
-		//            let albums = melon["albums"] as! NSDictionary
-		//            let album = albums["album"] as! NSArray
-		//
-		//            //테이블 뷰 리스트를 구성할 데이터 형식
-		//            var mzi : MusicVO
-		//
-		//            // Iterator 처리를 하면서 API 데이터를 MusicVO객체에 저장한다.
-		//            for row in album {
-		//                mzi = MusicVO()
-		//
-		//                mzi.albumName      = row["albumName"] as? String
-		//                mzi.artistName     = row["artists"] as? String
-		//                mzi.issueDate      = row["issueDate"] as? String
-		//                mzi.totalSongCount = row["totalSongCount"] as? Int
-		//                mzi.averageScore   = row["averageScore"] as? String
-		//
-		//                let artists = row["repArtists"] as! NSDictionary
-		//                let artist = artists["artist"] as! NSArray
-		//
-		//                for ro2 in artist {
-		//                    mzi.artistName = ro2["artistName"] as? String
-		//                }
-		//
-		//                let albumId = row["albumId"] as? Int
-		//                mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId!)"
-		//
-		//                self.list.append(mzi)
-		//
-		//            }
-		//
-		//
-		//            //전체 데이터 카운트를 얻는다.
-		//            let totalCount = melon["totalPages"] as? Int
-		//
-		//            //totalCount가 읽어온 데이터 크기와 같거나 클 경우 더보기 버튼을 막는다.
-		//            if(self.list.count >= totalCount) {
-		//                self.moreBtn.isHidden = true
-		//            }
-		//
-		//        } catch{
-		//			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .alert)
-		//			let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-		//				exit(0)
-		//			})
-		//			alert.addAction(cancelAction)
-		//			self.present(alert, animated: true, completion: nil)
-		//
-		//            NSLog("Parse Error!!")
-		//        }//catch end
 	}//API end
 	
 	// MARK: - 테이블 뷰 구성
@@ -235,8 +172,4 @@ class NewMusicTableViewContrller : UITableViewController {
 		//구성된 셀을 반환함
 		return cell!
 	}
-	
-	//		override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-	//			//NSLog("Touch Table Row at %d", indexPath.row)
-	//		}
 }

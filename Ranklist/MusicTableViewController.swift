@@ -8,7 +8,9 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
+import RealmSwift
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -50,9 +52,16 @@ class MusicTableViewController: UITableViewController {
     var page = 1
     
     // MARK: - 초기 화면
-    override func viewDidLoad() {
-        self.callMusicAPI()
-    }//viewDidLoad end
+	override func viewDidLoad() {
+		defer {
+			self.callMusicAPI()
+		}
+		do {
+			let realm = try Realm()
+		} catch (let error) {
+			print(error.localizedDescription)
+		}
+	}//viewDidLoad end
     
     // MARK: - 세그웨이
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,15 +98,6 @@ class MusicTableViewController: UITableViewController {
 		
 		//멜론API 호출을 위한 URI를 생성
 		let apiURI = URL(string:"http://apis.skplanetx.com/melon/charts/realtime?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
-		//		let apiURI = URL(string:"http://apis.skplanetx.com/melon/charts/realtime")
-		//
-		//		let melnoParam : [String : String] = [
-		//			"count" : "20",
-		//			"page" : "\(self.page)",
-		//			"version" : "1",
-		//			"appkey" : "d9d377f1-756e-3bba-b050-0dc459d349e9"
-		//		]
-		
 		Alamofire.request(apiURI!)
 			.responseJSON { (reponse) in
 				switch reponse.result {
@@ -127,8 +127,13 @@ class MusicTableViewController: UITableViewController {
 								mzi.artistName = ro2
 							}
 							
-							let albumId = row["albumId"].intValue
-							mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId)"
+//							let albumId = row["albumId"].intValue
+//							mzi.imageUrl = "http://cdnimg.melon.co.kr/cm/album/images/100/29/181/\(albumId).jpg"
+							
+							let songId = row["songId"].intValue
+							mzi.detail = "http://m.app.melon.com/song/lyrics.htm?songId=\(songId)"
+								//예전 링크
+								//"http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId)"
 							self.list.append(mzi)
 						}
 					}
@@ -151,70 +156,6 @@ class MusicTableViewController: UITableViewController {
 					self.present(alert, animated: true, completion: nil)
 				}
 		}
-		/*
-		//REST API를 호출
-		let apidata : Data? = try? Data(contentsOf: apiURI!)
-		
-		//데이터 전송 결과를 로그로 출력(확인용)
-		//NSLog("\n <more> API Result = %@", NSString(data: apidata!, encoding: NSUTF8StringEncoding)!)
-		
-		//JSON 객체를 파싱하여 NSDictionary 객체로 받음
-		do{
-		let apiDictionary = try JSONSerialization.jsonObject(with: apidata!, options: []) as! NSDictionary
-		
-		//데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
-		let melon = apiDictionary["melon"] as! NSDictionary
-		let songs = melon["songs"] as! NSDictionary
-		let song = songs["song"] as! NSArray
-		
-		//테이블 뷰 리스트를 구성할 데이터 형식
-		var mzi : MusicVO
-		
-		// Iterator 처리를 하면서 API 데이터를 MovieVO객체에 저장한다.
-		for row in song{
-		mzi = MusicVO()
-		
-		mzi.songName       = row["songName"] as? String
-		mzi.albumName      = row["albumName"] as? String
-		mzi.artistName     = row["artists"] as? String
-		mzi.currentRank    = row["currentRank"] as? Int
-		mzi.pastRank       = row["pastRank"] as? Int
-		mzi.isTitleSong    = row["isTitleSong"] as? String
-		
-		let artists = row["artists"] as! NSDictionary
-		let artist = artists["artist"] as! NSArray
-		
-		for ro2 in artist {
-		mzi.artistName = ro2["artistName"] as? String
-		}
-		
-		let albumId = row["albumId"] as? Int
-		mzi.detail = "http://m.melon.com/cds/common/mobile/openapigate_dispatcher.htm?type=album&cid=\(albumId!)"
-		
-		self.list.append(mzi)
-		
-		}
-		
-		
-		//전체 데이터 카운트를 얻는다.
-		let totalCount = 100
-		
-		//totalCount가 읽어온 데이터 크기와 같거나 클 경우 더보기 버튼을 막는다.
-		if(self.list.count >= totalCount) {
-		self.moreBtn.isHidden = true
-		}
-		
-		} catch{
-		let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .alert)
-		let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-		exit(0)
-		})
-		alert.addAction(cancelAction)
-		self.present(alert, animated: true, completion: nil)
-		
-		NSLog("Parse Error!!")
-		}//catch end
-		*/
 	}//API end
 	
     // MARK: - 테이블 뷰 구성
@@ -233,8 +174,10 @@ class MusicTableViewController: UITableViewController {
 		
         //as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
         let cell = tableView.dequeueReusableCell(withIdentifier: "rtmCell") as! MusicCell!
-        
-        
+		
+//		let imgURL = URL(string: row.imageUrl!)
+//		cell?.albumImg.af_setImage(withURL: imgURL!)
+		
         //데이터 소스에 저장된 값을 각 레이블 변수에 할당
         if Bool(row.isTitleSong!)! {
             cell?.songName?.text = row.songName
@@ -253,22 +196,17 @@ class MusicTableViewController: UITableViewController {
         if row.pastRank! > row.currentRank! {
             cell?.pastRank?.textColor = UIColor.red
             ranNum = row.pastRank! - row.currentRank!
-            cell?.pastRank?.text = "▲ \(ranNum!)"
+            cell?.pastRank?.text = "▲\(ranNum!)"
         }else if row.pastRank! < row.currentRank! {
             cell?.pastRank?.textColor = UIColor.blue
             ranNum = row.currentRank! - row.pastRank!
-            cell?.pastRank?.text = "▼ \(ranNum!)"
+            cell?.pastRank?.text = "▼\(ranNum!)"
         }else {
             cell?.pastRank?.textColor = UIColor.gray
-            cell?.pastRank?.text = "변동없음"
+            cell?.pastRank?.text = "-"
         }
 		
         //구성된 셀을 반환함
         return cell!
     }
-    
-//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        //NSLog("Touch Table Row at %d", indexPath.row)
-//    }
-//    
 }//class end

@@ -136,60 +136,6 @@ class MovieDayTableViewController: UITableViewController {
 			}
 		}
 		
-		//REST API를 호출
-		//let apidata : Data? = try? Data(contentsOf: apiURI!)
-		
-		//데이터 전송 결과를 로그로 출력(확인용)
-		//NSLog("\n <more> API Result = %@", NSString(data: apidata!, encoding: NSUTF8StringEncoding)!)
-		
-		//JSON 객체를 파싱하여 NSDictionary 객체로 받음
-//		do{
-//			let apiDictionary = try JSONSerialization.jsonObject(with: apidata!, options: []) as? NSDictionary
-//			
-//			//데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
-//			let boxOfficeResult = apiDictionary!["boxOfficeResult"] as! NSDictionary
-//			let dailyBoxOfficeList =  boxOfficeResult["dailyBoxOfficeList"] as! NSArray
-//			
-//			//테이블 뷰 리스트를 구성할 데이터 형식
-//			var mvo : MovieVO
-//			
-//			// Iterator 처리를 하면서 API 데이터를 MovieVO객체에 저장한다.
-//			for row0 in dailyBoxOfficeList{
-//				if let row = row0 as? [String] {
-//				mvo = MovieVO()
-//				
-//				mvo.movieNm = row["movieNm"] as? String
-//				mvo.movieCd = row["movieCd"] as? String
-//				mvo.openDt  = row["openDt"] as? String
-//				mvo.rankOldAndNew = row["rankOldAndNew"] as? String
-//				mvo.rank = row["rank"] as? String
-//				mvo.rankInten = row["rankInten"] as? String
-//				
-//				let aAcc = Int((row["audiAcc"] as? String)!)
-//				let numberFomat = NumberFormatter()
-//				numberFomat.numberStyle = .decimal
-//				
-//				mvo.audiAcc = numberFomat.string(from: aAcc!)
-//				
-//				let movieId = row["movieCd"] as? String
-//				mvo.detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieId!)"
-//				
-//				self.list.append(mvo)
-//			}
-//			
-//			}
-//			let showRange = boxOfficeResult["showRange"] as? String
-//			self.rankday?.text = "조회날짜 : \(showRange!)"
-//			
-//		} catch{
-//			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .alert)
-//			let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-//				self.performSegue(withIdentifier: "segue_melon", sender: nil)
-//			})
-//			alert.addAction(cancelAction)
-//			self.present(alert, animated: true, completion: nil)
-//			NSLog("Parse Error!!")
-//		}//catch end
 	}//API end
 	
 	//=======================================테이블 뷰 구성=====================================================

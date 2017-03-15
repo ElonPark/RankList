@@ -19,6 +19,8 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	
 	var wkWV : WKWebView = WKWebView()
 	
+	var canReload : Bool = false
+	
 	//목록에서 음악 데이터를 받을 변수
 	var miz : MusicVO? = nil
 	
@@ -77,15 +79,22 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 	}
 	
 	func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-		wkWV.reload()
+		if canReload {
+			canReload = false
+			wkWV.reload()
+		}
 	}
 	
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		if !navigationAction.request.url!.absoluteString.hasPrefix("http") {
+			UIApplication.shared.openURL(navigationAction.request.url!)
+		}
 		decisionHandler(WKNavigationActionPolicy.allow)
 	}
 	
 	//로딩 끝나면 프로그래뷰 없어짐
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		canReload = true
 		progressView.setProgress(0.0, animated: false)
 	}
 	
@@ -97,14 +106,18 @@ class RtMusicDetailViewController: UIViewController, WKNavigationDelegate, WKUID
 		}
 	}
 	
+	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+		errorAlertFunc("loading error = \(error.localizedDescription)")
+	}
 	
 	//웹 뷰가 웹페이지 로드를 실패 했을때
 	func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
 		//경고창 형식으로 오류 메시지를 표시해준다.
-		errorAlertFunc("loading error = \(error)")
+//		errorAlertFunc("loading error = \(error.localizedDescription)")
+		print("loading error = \(error.localizedDescription)")
 	}
 	
-	func urlLoadFunc(){
+	func urlLoadFunc() {
 		if miz != nil && mvo == nil {
 			self.navibar.title = self.miz?.songName
 			//예외 처리

@@ -12,28 +12,28 @@ import SwiftyJSON
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
+//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//  switch (lhs, rhs) {
+//  case let (l?, r?):
+//    return l < r
+//  case (nil, _?):
+//    return true
+//  default:
+//    return false
+//  }
+//}
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
+//fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//  switch (lhs, rhs) {
+//  case let (l?, r?):
+//    return l > r
+//  default:
+//    return rhs < lhs
+//  }
+//}
+//
 
 class MovieWeekTableViewController: UITableViewController {
 	
@@ -160,61 +160,6 @@ class MovieWeekTableViewController: UITableViewController {
 				self.present(alert, animated: true, completion: nil)
 			}
 		}
-		
-		
-		//		//REST API를 호출
-		//		let apidata : Data? = try? Data(contentsOf: apiURI!)
-		//
-		//		//데이터 전송 결과를 로그로 출력(확인용)
-		//		//NSLog("\n <more> API Result = %@", NSString(data: apidata!, encoding: NSUTF8StringEncoding)!)
-		//
-		//		//JSON 객체를 파싱하여 NSDictionary 객체로 받음
-		//		do{
-		//			let apiDictionary = try JSONSerialization.jsonObject(with: apidata!, options: []) as! NSDictionary
-		//
-		//			//데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
-		//			let boxOfficeResult = apiDictionary["boxOfficeResult"] as! NSDictionary
-		//			let weeklyBoxOfficeList =  boxOfficeResult["weeklyBoxOfficeList"] as! NSArray
-		//
-		//			//테이블 뷰 리스트를 구성할 데이터 형식
-		//			var mvo : MovieVO
-		//
-		//			// Iterator 처리를 하면서 API 데이터를 MovieVO객체에 저장한다.
-		//			for row in weeklyBoxOfficeList{
-		//				mvo = MovieVO()
-		//
-		//				mvo.movieNm = row["movieNm"] as? String
-		//				mvo.movieCd = row["movieCd"] as? String
-		//				mvo.openDt  = row["openDt"] as? String
-		//
-		//				let aAcc = Int((row["audiAcc"] as? String)!)
-		//				let numberFomat = NumberFormatter()
-		//				numberFomat.numberStyle = .decimal
-		//
-		//				mvo.audiAcc = numberFomat.string(from: aAcc!)
-		//
-		//
-		//				mvo.audiChange = row["audiChange"] as? String
-		//				mvo.rank = row["rank"] as? String
-		//
-		//				let movieId = row["movieCd"] as? String
-		//				mvo.detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieId!)"
-		//
-		//				self.list.append(mvo)
-		//			}
-		//
-		//			let showRange = boxOfficeResult["showRange"] as? String
-		//			self.rankday?.text = "조회날짜 : \(showRange!) (월 ~ 금)"
-		//
-		//		} catch{
-		//			let alert  = UIAlertController(title: "경고", message: "파싱 에러", preferredStyle: .alert)
-		//			let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-		//				self.performSegue(withIdentifier: "segue_melon", sender: nil)
-		//			})
-		//			alert.addAction(cancelAction)
-		//			self.present(alert, animated: true, completion: nil)
-		//			NSLog("Parse Error!!")
-		//		}//catch end
 	}//API end
 	
 	//=======================================테이블 뷰 구성=====================================================
@@ -240,10 +185,10 @@ class MovieWeekTableViewController: UITableViewController {
 		cell?.openDt?.text = row.openDt
 		
 		
-		if Double(row.audiChange!) > 0 {
+		if Double(row.audiChange!)! > 0 {
 			cell?.audiChange?.textColor = UIColor.red
 			cell?.audiChange?.text = "▲ \(row.audiChange!)%"
-		}else if Double(row.audiChange!) < 0 {
+		}else if Double(row.audiChange!)! < 0 {
 			cell?.audiChange?.textColor = UIColor.blue
 			cell?.audiChange?.text = "▼ \(row.audiChange!)%"
 		}else {

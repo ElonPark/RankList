@@ -14,17 +14,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CuckooAlert.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-RankWidget.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Ranklist.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,17 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0806CADD626F3EC89A4338C85BDFF62F</key>
+		<key>11E1D9C02548AF3B3B343DEC00124099</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A24C6C0B43CD34C174C6C97F2B90B1D</key>
+		<key>1B068930D60A7A75803C7529A072B14B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>843B83265B28922B707FD7DD3AF3EA8C</key>
+		<key>367C8124BDA0CA629643F1321B6118DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C0646336EF9B3B239CF2C3BD033C55E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1F650476DBEEE9AE19B2F613021D299</key>
+		<key>F159D990E802517F3C09E15D860F172E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

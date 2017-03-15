@@ -6,7 +6,7 @@ target 'Ranklist' do
  pod 'Alamofire'
  pod 'AlamofireImage'
  pod 'SwiftyJSON'
- pod 'CuckooAlert'
+ pod 'RealmSwift'
 end
 
 
@@ -14,5 +14,5 @@ target 'RankWidget' do
  pod 'Alamofire'
  pod 'AlamofireImage'
  pod 'SwiftyJSON'
- pod 'CuckooAlert'
+ pod 'RealmSwift'
 end

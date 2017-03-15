@@ -20,5 +20,6 @@ class MusicVO {
     var detail : String?
     var averageScore : String?
     var totalSongCount : Int?
+	var imageUrl : String?
     
 }

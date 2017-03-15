@@ -19,4 +19,6 @@ class MusicCell: UITableViewCell {
     @IBOutlet var albumName: UILabel!
     
     @IBOutlet var pastRank: UILabel!
+	
+	@IBOutlet weak var albumImg: UIImageView!
 }
