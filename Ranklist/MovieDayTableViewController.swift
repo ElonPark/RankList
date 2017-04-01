@@ -141,12 +141,12 @@ class MovieDayTableViewController: UITableViewController {
 	//=======================================테이블 뷰 구성=====================================================
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		//테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
-		return self.list.count
+		return list.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//주어진 행에 맞는 데이터 소스를 가져옴
-		let row = self.list[indexPath.row]
+		let row = list[indexPath.row]
 		
 		//NSLog("result = \(row.songName!), row index = \(indexPath.row)")
 		

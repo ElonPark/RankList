@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.infoData?.text = "Data From\n SK플래닛 Open API\n영화진흥위원회 Open API "
+        infoData?.text = "Data From\n SK플래닛 Open API\n영화진흥위원회 Open API "
     }
 
     override func didReceiveMemoryWarning() {

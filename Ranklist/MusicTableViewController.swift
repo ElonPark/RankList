@@ -12,32 +12,6 @@ import AlamofireImage
 import SwiftyJSON
 import RealmSwift
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-//  switch (lhs, rhs) {
-//  case let (l?, r?):
-//    return l < r
-//  case (nil, _?):
-//    return true
-//  default:
-//    return false
-//  }
-//}
-//
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-//fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-//  switch (lhs, rhs) {
-//  case let (l?, r?):
-//    return l > r
-//  default:
-//    return rhs < lhs
-//  }
-//}
-
-
-
 class MusicTableViewController: UITableViewController {
     
     @IBOutlet var RTmusicTable: UITableView!
@@ -48,7 +22,7 @@ class MusicTableViewController: UITableViewController {
     // MARK: - 테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수
     var list = Array<MusicVO>()
     
-    // MARK: - 현재까지 읽어온 데이터 정보
+    /// MARK: - 현재까지 읽어온 데이터 정보
     var page = 1
     
     // MARK: - 초기 화면
@@ -83,17 +57,18 @@ class MusicTableViewController: UITableViewController {
     }
     
     
-    // MARK: - 더보기 버튼
+    /// MARK: - 더보기 버튼
     @IBAction func more(_ sender: AnyObject) {
         //더 많은 노래 목록을 불러오기 위해
-        self.page += 1
+        page += 1
         
         //영화차트 API를 호출한다.
-        self.callMusicAPI()
+        callMusicAPI()
 		
     }//more end
-    
-    // MARK: - 음악 API
+	
+	
+    /// MARK: - 음악 API
 	func callMusicAPI() {
 		
 		//멜론API 호출을 위한 URI를 생성

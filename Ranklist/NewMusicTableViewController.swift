@@ -10,30 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-//	switch (lhs, rhs) {
-//	case let (l?, r?):
-//		return l < r
-//	case (nil, _?):
-//		return true
-//	default:
-//		return false
-//	}
-//}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-//fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-//	switch (lhs, rhs) {
-//	case let (l?, r?):
-//		return l >= r
-//	default:
-//		return !(lhs < rhs)
-//	}
-//}
-
 class NewMusicTableViewContrller : UITableViewController {
 	
 	@IBOutlet var newMusicTable: UITableView!
@@ -75,10 +51,10 @@ class NewMusicTableViewContrller : UITableViewController {
 	// MARK: - 더보기 버튼
 	@IBAction func more(_ sender: AnyObject) {
 		//더 많은 노래 목록을 불러오기 위해
-		self.page += 1
+		page += 1
 		
 		//영화차트 API를 호출한다.
-		self.callMusicAPI()
+		callMusicAPI()
 	}
 	
 	
