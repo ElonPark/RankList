@@ -10,31 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
-
 class MovieDayTableViewController: UITableViewController {
 	
 	@IBOutlet var movieDayTable: UITableView!
@@ -66,13 +41,13 @@ class MovieDayTableViewController: UITableViewController {
 			let param = self.list[path!.row]
 			
 			//세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 mvo 변수에 데이터를 연결해준다.
-			(segue.destination as? RtMusicDetailViewController)?.mvo = param
+			(segue.destination as? DetailWebViewController)?.mvo = param
 			
 		}
 	}
 	
 	
-	//영화 API
+	///영화 API
 	func callMovieAPI() {
 		//어제 날짜 출력, NS캘린더에서 오늘 날짜를 받아와
 		let calendar = Calendar.current
@@ -160,10 +135,10 @@ class MovieDayTableViewController: UITableViewController {
 		cell?.openDt?.text = row.openDt
 		
 		
-		if Int(row.rankInten!) > 0 {
+		if Int(row.rankInten!)! > 0 {
 			cell?.rankInten?.textColor = UIColor.red
 			cell?.rankInten?.text = "▲ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
-		}else if Int(row.rankInten!) < 0 {
+		}else if Int(row.rankInten!)! < 0 {
 			cell?.rankInten?.textColor = UIColor.blue
 			cell?.rankInten?.text = "▼ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
 		}else {

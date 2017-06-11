@@ -42,7 +42,7 @@ class NewMusicTableViewContrller : UITableViewController {
 			let param = self.list[path!.row]
 			
 			//세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 miz 변수에 데이터를 연결해준다.
-			(segue.destination as? RtMusicDetailViewController)?.miz = param
+			(segue.destination as? DetailWebViewController)?.miz = param
 			
 		}
 	}
