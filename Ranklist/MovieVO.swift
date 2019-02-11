@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 
-class WeeklyBoxOffice {
+class BoxOffice {
 
     ///해당일자의 박스오피스 순위를 출력합니다.
     var rank: Int
@@ -61,18 +61,16 @@ class WeeklyBoxOffice {
         salesAcc = json["salesAcc"].int64Value
         showCnt = json["showCnt"].int64Value
 
-        let movieId = json["movieCd"].stringValue
-        detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?"
-        detail += "movieCd=\(movieId)"
+        detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieCd)"
     }
 }
 
-struct BoxOffice {
+struct MovieVO {
     let boxOfficeType: String
     let showRange: String
     let yearWeekTime: String
 
-    let weeklyBoxOfficeList: [WeeklyBoxOffice]
+    let weeklyBoxOfficeList: [BoxOffice]
 
     init(data: Any) {
         let json = JSON(data)
@@ -83,7 +81,7 @@ struct BoxOffice {
         yearWeekTime = boxOfficeResult["yearWeekTime"].stringValue
 
         weeklyBoxOfficeList = json["weeklyBoxOfficeList"].arrayValue.map {
-            WeeklyBoxOffice(json: $0)
+            BoxOffice(json: $0)
         }
     }
 }

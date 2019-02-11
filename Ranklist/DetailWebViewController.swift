@@ -25,7 +25,7 @@ class DetailWebViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
 	var miz: MusicVO? = nil
 	
 	//목록에서 영화 데이터를 받을 변수
-	var mvo : WeeklyBoxOffice? = nil
+	var mvo : BoxOffice? = nil
 	
 	deinit {
 		self.wkWV.removeObserver(self, forKeyPath: "estimatedProgress")

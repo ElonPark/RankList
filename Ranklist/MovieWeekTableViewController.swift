@@ -12,8 +12,7 @@ import SwiftyJSON
 
 
 extension MovieWeekTableViewController {
-    
-    ///오늘 날짜에서 지난 주 일요일을 가져온다.
+
     func previousSundayDateString() -> String? {
         guard let sunday = Date.today().previous(.sunday, considerToday: true) else { return nil }
         let dateFormatter = DateFormatter()
@@ -33,16 +32,16 @@ extension MovieWeekTableViewController {
                                        message: errorString,
                                        preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-            self.performSegue(withIdentifier: "segue_melon", sender: nil)
-        })
+        let cancelAction = UIAlertAction(title: "확인", style: .cancel) { [weak self] _ in
+            self?.performSegue(withIdentifier: "segue_melon", sender: nil)
+        }
         
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
     func callMovieAPI(with date: String) {
-        MovieAPI.searchWeeklyBoxOffice(with: date) { [weak self] (boxOfficeData, apiError) in
+        MovieAPI.searchBoxOffice(type: .weekly, with: date) { [weak self] (boxOfficeData, apiError) in
             defer {
                 self?.errorAlert(apiError)
             }
@@ -51,14 +50,13 @@ extension MovieWeekTableViewController {
             self?.list = boxOffice.weeklyBoxOfficeList
             self?.rankday?.text = "조회날짜: \(boxOffice.showRange)"
             self?.movieWeekTable.reloadData()
-            
         }
     }
 }
 
 extension MovieWeekTableViewController {
     
-    func setData(to cell: MweekCell, by row: WeeklyBoxOffice) -> MweekCell {
+    func setData(to cell: MweekCell, by row: BoxOffice) -> MweekCell {
         //데이터 소스에 저장된 값을 각 레이블 변수에 할당
         cell.movieNm.text = row.movieNm
         cell.rank.text = String(row.rank)
@@ -102,10 +100,6 @@ extension MovieWeekTableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("Touch Table Row at \(indexPath.row)")
-    }
 }
 
 class MovieWeekTableViewController: UITableViewController {
@@ -113,7 +107,7 @@ class MovieWeekTableViewController: UITableViewController {
 	@IBOutlet var movieWeekTable: UITableView!
 	@IBOutlet var rankday: UILabel!
 	
-	var list = [WeeklyBoxOffice]()
+	var list = [BoxOffice]()
 
 	override func viewDidLoad() {
         if let sunday = previousSundayDateString() {
@@ -127,10 +121,8 @@ class MovieWeekTableViewController: UITableViewController {
 		guard segue.identifier == "segue_weekdetail" else { return }
 		guard  let cell = sender as? MweekCell else { return }
 		guard let path = movieWeekTable.indexPath(for: cell) else { return }
-		//API 음악 데이터 배열 중에서 선택된 행에 대한 데이터를 얻는다.
-		let param = self.list[path.row]
-		//세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 mvo 변수에 데이터를 연결해준다.
+        
 		let detailWebView = segue.destination as? DetailWebViewController
-		detailWebView?.mvo = param
+		detailWebView?.mvo = list[path.row]
 	}
 }

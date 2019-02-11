@@ -260,11 +260,11 @@
 			isa = PBXGroup;
 			children = (
 				335DDF301C404BF500750514 /* MovieVO.swift */,
+				DB20FF74220F51F600CD1847 /* MovieAPI.swift */,
 				330EA6A11C43E7070007EF14 /* MdayCell.swift */,
 				330EA6A31C43E7120007EF14 /* MweekCell.swift */,
 				330EA6A51C43E7AA0007EF14 /* MovieDayTableViewController.swift */,
 				330EA6A71C43E7DB0007EF14 /* MovieWeekTableViewController.swift */,
-				DB20FF74220F51F600CD1847 /* MovieAPI.swift */,
 			);
 			name = Movie;
 			sourceTree = "<group>";
