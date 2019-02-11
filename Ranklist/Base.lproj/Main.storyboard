@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Ranklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="Ranklist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTl-au-dgT">
-                                <rect key="frame" x="63" y="139" width="193" height="48"/>
+                                <rect key="frame" x="66" y="106" width="188.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUv-ke-8Hf">
-                                <rect key="frame" x="117" y="272" width="86" height="24"/>
+                                <rect key="frame" x="80" y="239" width="160" height="90"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="멜론차트" image="music">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,7 +58,7 @@
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBV-f8-Aji">
-                                <rect key="frame" x="108" y="311" width="103" height="24"/>
+                                <rect key="frame" x="71.5" y="344" width="177" height="90"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="박스오피스" image="movie">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,7 +100,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="jjk-VA-gCV">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="jjk-VA-gCV">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <subviews>
@@ -133,17 +132,17 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYM-5T-NOl" id="EPR-0F-a0o">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5hz-Vz-a5r">
-                                            <rect key="frame" x="48.5" y="12" width="26" height="18"/>
+                                            <rect key="frame" x="48.5" y="12.5" width="26" height="18"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="YRJ-jN-NHq">
-                                            <rect key="frame" x="48.5" y="36" width="22.5" height="16"/>
+                                            <rect key="frame" x="48.5" y="36.5" width="22.5" height="16"/>
                                             <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -155,20 +154,20 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▼100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-pu-mdC">
-                                            <rect key="frame" x="13.5" y="37.5" width="24" height="11"/>
+                                            <rect key="frame" x="14.5" y="37.5" width="24" height="11"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="9"/>
                                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LLI-Hp-fEJ">
-                                            <rect key="frame" x="8" y="7" width="0.0" height="50"/>
+                                            <rect key="frame" x="8" y="7.5" width="0.0" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" id="37h-eP-V0p"/>
                                                 <constraint firstAttribute="height" constant="50" id="Uuh-OA-gE5"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qc-nX-3CR">
-                                            <rect key="frame" x="76.5" y="38" width="19.5" height="13.5"/>
+                                            <rect key="frame" x="76" y="37.5" width="19.5" height="13.5"/>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -281,7 +280,7 @@
                     <tabBarItem key="tabBarItem" title="실시간" image="list" id="lQw-rn-aS6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="35D-2d-mcY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -301,12 +300,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="7ed-Gd-uwZ">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="7ed-Gd-uwZ">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3z1-4i-35j">
-                                    <rect key="frame" x="140.5" y="7" width="39" height="30"/>
+                                    <rect key="frame" x="140.5" y="-9" width="39" height="30"/>
                                     <state key="normal" title="더보기"/>
                                     <connections>
                                         <action selector="more:" destination="9Cb-aJ-bjQ" eventType="touchUpInside" id="0hG-Fh-JD4"/>
@@ -324,7 +323,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kfo-Tz-DJt" id="dHV-iO-Uvf">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="앨범" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="oB1-0Q-70Z">
@@ -405,7 +404,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="pDu-5q-JEu">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="pDu-5q-JEu">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -429,7 +428,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jxw-fG-bwg" id="384-XB-Aic">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="순위증감" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-e2-Uxt">
@@ -452,7 +451,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-xF-jjW">
-                                            <rect key="frame" x="15" y="22" width="37" height="21"/>
+                                            <rect key="frame" x="23" y="25" width="37" height="15"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -521,7 +520,7 @@
                 <navigationController id="T9u-l3-LD0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="일일" image="list" id="Ld8-Jl-KfM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gaV-Qm-ZTn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -540,12 +539,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="gaD-se-XLI">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="gaD-se-XLI">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="조회일자" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eso-30-oBB">
-                                    <rect key="frame" x="8" y="0.0" width="304" height="44"/>
+                                    <rect key="frame" x="8" y="0.0" width="304" height="12"/>
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -564,7 +563,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cgV-e0-uKv" id="jyc-cX-M0r">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Glp-UA-ECN">
@@ -587,7 +586,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roF-ax-7CS">
-                                            <rect key="frame" x="17" y="22" width="39" height="21"/>
+                                            <rect key="frame" x="25" y="22" width="39" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="39" id="Zey-q3-BTv"/>
                                             </constraints>
@@ -659,7 +658,7 @@
                 <navigationController id="PpB-KS-ZOb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="최신앨범" image="disc" id="Y0b-Cg-wpZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ufu-AA-thh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -696,7 +695,7 @@
                     <tabBarItem key="tabBarItem" title="주간" image="list2" id="0Vj-Ky-AMG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nxQ-Gu-0pY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -729,15 +728,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="disc" width="16" height="16"/>
-        <image name="list" width="16" height="16"/>
-        <image name="list2" width="16" height="16"/>
-        <image name="movie" width="16" height="16"/>
-        <image name="music" width="16" height="16"/>
+        <image name="disc" width="90" height="90"/>
+        <image name="list" width="90" height="90"/>
+        <image name="list2" width="90" height="90"/>
+        <image name="movie" width="90" height="90"/>
+        <image name="music" width="90" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Iuj-6t-RMt"/>
         <segue reference="OnL-b4-w1Z"/>
+        <segue reference="Iuj-6t-RMt"/>
         <segue reference="ID7-bs-09J"/>
     </inferredMetricsTieBreakers>
 </document>

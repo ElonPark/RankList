@@ -10,198 +10,127 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-//  switch (lhs, rhs) {
-//  case let (l?, r?):
-//    return l < r
-//  case (nil, _?):
-//    return true
-//  default:
-//    return false
-//  }
-//}
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-//fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-//  switch (lhs, rhs) {
-//  case let (l?, r?):
-//    return l > r
-//  default:
-//    return rhs < lhs
-//  }
-//}
-//
+extension MovieWeekTableViewController {
+    
+    ///오늘 날짜에서 지난 주 일요일을 가져온다.
+    func previousSundayDateString() -> String? {
+        guard let sunday = Date.today().previous(.sunday, considerToday: true) else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        let sundayString = dateFormatter.string(from: sunday)
+        
+        return sundayString
+    }
+    
+    
+    func errorAlert(_ error: Error?) {
+        guard let _error = error else { return }
+        let errorString = _error.localizedDescription
+        
+        let alert  = UIAlertController(title: "Error",
+                                       message: errorString,
+                                       preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
+            self.performSegue(withIdentifier: "segue_melon", sender: nil)
+        })
+        
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func callMovieAPI(with date: String) {
+        MovieAPI.searchWeeklyBoxOffice(with: date) { [weak self] (boxOfficeData, apiError) in
+            defer {
+                self?.errorAlert(apiError)
+            }
+            
+            guard let boxOffice = boxOfficeData else { return }
+            self?.list = boxOffice.weeklyBoxOfficeList
+            self?.rankday?.text = "조회날짜: \(boxOffice.showRange)"
+            self?.movieWeekTable.reloadData()
+            
+        }
+    }
+}
+
+extension MovieWeekTableViewController {
+    
+    func setData(to cell: MweekCell, by row: WeeklyBoxOffice) -> MweekCell {
+        //데이터 소스에 저장된 값을 각 레이블 변수에 할당
+        cell.movieNm.text = row.movieNm
+        cell.rank.text = String(row.rank)
+        cell.openDt.text = row.openDt
+        
+        let numberFomat = NumberFormatter()
+        numberFomat.numberStyle = .decimal
+        cell.audiAcc.text = numberFomat.string(for: row.audiAcc)
+        
+        if row.audiChange > 0.0 {
+            cell.audiChange.textColor = UIColor.red
+            cell.audiChange.text = "▲ \(row.audiChange)%"
+            
+        }else if row.audiChange < 0.0 {
+            cell.audiChange.textColor = UIColor.blue
+            cell.audiChange.text = "▼ \(row.audiChange)%"
+            
+        }else {
+            cell.audiChange.textColor = UIColor.gray
+            cell.audiChange.text = "\(row.audiChange)%"
+        }
+        
+        cell.audiAcc.text = "누적: \(row.audiAcc)명"
+        
+        //구성된 셀을 반환함
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
+        return list.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+        let row = list[indexPath.row]
+    
+        var cell = tableView.dequeueReusableCell(withIdentifier: "weekCell") as! MweekCell
+        
+        cell = setData(to: cell, by: row)
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print("Touch Table Row at \(indexPath.row)")
+    }
+}
 
 class MovieWeekTableViewController: UITableViewController {
 	
 	@IBOutlet var movieWeekTable: UITableView!
 	@IBOutlet var rankday: UILabel!
 	
-	var list = Array<MovieVO>()
-	
-	
+	var list = [WeeklyBoxOffice]()
+
 	override func viewDidLoad() {
-		callMovieAPI()
-	}//viewDidLoad end
-	
-	
-	//=============================세그웨이=====================================
+        if let sunday = previousSundayDateString() {
+            callMovieAPI(with: sunday)
+        } else {
+            errorAlert(APIError.dateError("날짜가 올바르지 않습니다."))
+        }
+	}
+
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		//실행된 세그웨이의 식별자가  segue_rtmdetail이라면
-		if(segue.identifier == "segue_weekdetail") {
-			//sender 인자를 캐스팅하여  테이블 셀 객체로 변환한다.
-			let cell = sender as! MweekCell
-			
-			//세그웨이를 실행한 객체 정보를 이용하여 몇 번째 행이 선택되었는지 확인한다.
-			let path  = self.movieWeekTable.indexPath(for: cell)
-			
-			//API 음악 데이터 배열 중에서 선택된 행에 대한 데이터를 얻는다.
-			let param = self.list[path!.row]
-			
-			//세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 mvo 변수에 데이터를 연결해준다.
-			(segue.destination as? DetailWebViewController)?.mvo = param
-			
-		}
+		guard segue.identifier == "segue_weekdetail" else { return }
+		guard  let cell = sender as? MweekCell else { return }
+		guard let path = movieWeekTable.indexPath(for: cell) else { return }
+		//API 음악 데이터 배열 중에서 선택된 행에 대한 데이터를 얻는다.
+		let param = self.list[path.row]
+		//세그웨이가 향할 목적지 뷰 컨트롤러 객체를 읽어와 mvo 변수에 데이터를 연결해준다.
+		let detailWebView = segue.destination as? DetailWebViewController
+		detailWebView?.mvo = param
 	}
-	
-	
-	//오늘 날짜에서 일요일을 가져온다.
-	func getDayOfWeekString() -> String? {
-		
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyyMMdd"
-		
-		let calendar = Calendar.current
-		
-		let myCalendar = Calendar(identifier: Calendar.Identifier.gregorian)
-		let myComponents = (myCalendar as NSCalendar).components(.weekday, from: Date())
-		let weekDay = Int(myComponents.weekday!)
-		
-		let dateValue : Int
-		
-		switch weekDay {
-		case 1:
-			dateValue = -7
-		case 2:
-			dateValue = -1
-		case 3:
-			dateValue = -2
-		case 4:
-			dateValue = -3
-		case 5:
-			dateValue = -4
-		case 6:
-			dateValue = -5
-		case 7:
-			dateValue = -6
-		default:
-			return nil
-		}//switch end
-		let sunday = (calendar as NSCalendar).date(byAdding: .day, value: dateValue, to: Date(), options: [])
-		let targetDt = dateFormatter.string(from: sunday!)
-		//print("targetDt = \(targetDt)")
-		return targetDt
-	}//getDayOfWeekString end
-	
-	func callMovieAPI() {
-		let sunday = getDayOfWeekString()
-		
-		//영화API 호출을 위한 URI를 생성
-		let apiURI = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=2748a6f097987ce9a2327cb8f11240c5&targetDt=\(sunday!)&weekGb=0")
-		
-		Alamofire.request(apiURI!).responseJSON { (response) in
-			switch response.result {
-			case .success(let data):
-				let jsonData = JSON(data)
-				print(jsonData)
-				//데이터 구조에 따라 차례대로 캐스팅하며 읽어온다.
-				let boxOfficeResult = jsonData["boxOfficeResult"].dictionaryValue
-				let weeklyBoxOfficeList =  boxOfficeResult["weeklyBoxOfficeList"]?.arrayValue
-				
-				//테이블 뷰 리스트를 구성할 데이터 형식
-				var mvo : MovieVO
-				
-				if let movieList = weeklyBoxOfficeList{
-					for movieValue in movieList {
-						mvo = MovieVO()
-						mvo.movieNm = movieValue["movieNm"].stringValue
-						mvo.movieCd = movieValue["movieCd"].stringValue
-						mvo.openDt  = movieValue["openDt"].stringValue
-						mvo.rank = movieValue["rank"].stringValue
-						mvo.audiChange = movieValue["audiChange"].stringValue
-						
-						let aAcc = movieValue["audiAcc"].intValue
-						let numberFomat = NumberFormatter()
-						numberFomat.numberStyle = .decimal
-						
-						mvo.audiAcc = numberFomat.string(for: aAcc)
-						
-						let movieId = movieValue["movieCd"].stringValue
-						mvo.detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieId)"
-						
-						self.list.append(mvo)
-					}
-				}
-				
-				let showRange = boxOfficeResult["showRange"]?.stringValue
-				self.rankday?.text = "조회날짜 : \(showRange!)"
-				self.movieWeekTable.reloadData()
-				
-			case .failure(let error):
-				print(error)
-				let alert  = UIAlertController(title: "경고", message: "api 에러", preferredStyle: .alert)
-				let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: {(_) in
-					self.performSegue(withIdentifier: "segue_melon", sender: nil)
-				})
-				alert.addAction(cancelAction)
-				self.present(alert, animated: true, completion: nil)
-			}
-		}
-	}//API end
-	
-	//=======================================테이블 뷰 구성=====================================================
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		//테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
-		return self.list.count
-	}
-	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		//주어진 행에 맞는 데이터 소스를 가져옴
-		let row = self.list[indexPath.row]
-		
-		//NSLog("result = \(row.songName!), row index = \(indexPath.row)")
-		
-		
-		//as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
-		let cell = tableView.dequeueReusableCell(withIdentifier: "weekCell") as! MweekCell!
-		
-		
-		//데이터 소스에 저장된 값을 각 레이블 변수에 할당
-		cell?.movieNm?.text = row.movieNm
-		cell?.rank?.text = row.rank
-		cell?.openDt?.text = row.openDt
-		
-		
-		if Double(row.audiChange!)! > 0 {
-			cell?.audiChange?.textColor = UIColor.red
-			cell?.audiChange?.text = "▲ \(row.audiChange!)%"
-		}else if Double(row.audiChange!)! < 0 {
-			cell?.audiChange?.textColor = UIColor.blue
-			cell?.audiChange?.text = "▼ \(row.audiChange!)%"
-		}else {
-			cell?.audiChange?.textColor = UIColor.gray
-			cell?.audiChange?.text = "\(row.audiChange)%"
-		}
-		
-		cell?.audiAcc?.text = "누적: \(row.audiAcc!)명"
-		//구성된 셀을 반환함
-		return cell!
-	}
-	
-	override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		//NSLog("Touch Table Row at %d", indexPath.row)
-	}
-}//class end
+}

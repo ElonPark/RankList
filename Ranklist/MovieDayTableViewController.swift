@@ -19,7 +19,7 @@ class MovieDayTableViewController: UITableViewController {
 	
 	
 	//테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수
-	var list = Array<MovieVO>()
+	var list = Array<WeeklyBoxOffice>()
 	
 	
 	override func viewDidLoad() {
@@ -72,30 +72,30 @@ class MovieDayTableViewController: UITableViewController {
 				let dailyBoxOfficeList =  boxOfficeResult["dailyBoxOfficeList"]?.arrayValue
 				
 				//테이블 뷰 리스트를 구성할 데이터 형식
-				var mvo : MovieVO
+				var mvo : WeeklyBoxOffice
 				
 				guard let movieList = dailyBoxOfficeList else { return }
-					for movieValue in movieList {
-						mvo = MovieVO()
-						mvo.movieNm = movieValue["movieNm"].stringValue
-						mvo.movieCd = movieValue["movieCd"].stringValue
-						mvo.openDt  = movieValue["openDt"].stringValue
-						mvo.rankOldAndNew = movieValue["rankOldAndNew"].stringValue
-						mvo.rank = movieValue["rank"].stringValue
-						mvo.rankInten = movieValue["rankInten"].stringValue
-						
-						let aAcc = movieValue["audiAcc"].intValue
-						let numberFomat = NumberFormatter()
-						numberFomat.numberStyle = .decimal
-						
-						mvo.audiAcc = numberFomat.string(for: aAcc)
-						
-						let movieId = movieValue["movieCd"].stringValue
-						mvo.detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieId)"
-						
-						self.list.append(mvo)
-					}
-				
+//                    for movieValue in movieList {
+//                        mvo = WeeklyBoxOffice()
+//                        mvo.movieNm = movieValue["movieNm"].stringValue
+//                        mvo.movieCd = movieValue["movieCd"].stringValue
+//                        mvo.openDt  = movieValue["openDt"].stringValue
+//                        mvo.rankOldAndNew = movieValue["rankOldAndNew"].stringValue
+//                        mvo.rank = movieValue["rank"].stringValue
+//                        mvo.rankInten = movieValue["rankInten"].stringValue
+//                        
+//                        let aAcc = movieValue["audiAcc"].intValue
+//                        let numberFomat = NumberFormatter()
+//                        numberFomat.numberStyle = .decimal
+//                        
+//                        mvo.audiAcc = numberFomat.string(for: aAcc)
+//                        
+//                        let movieId = movieValue["movieCd"].stringValue
+//                        mvo.detail = "http://www.kobis.or.kr/kobis/mobile/mast/mvie/searchMovieDtl.do?movieCd=\(movieId)"
+//                        
+//                        self.list.append(mvo)
+//                    }
+//                
 				
 				let showRange = boxOfficeResult["showRange"]?.stringValue
 				self.rankday?.text = "조회날짜 : \(showRange!)"
@@ -127,35 +127,35 @@ class MovieDayTableViewController: UITableViewController {
 		
 		
 		//as! UITableViewCell => as! MovieCell로 캐스팅 타입 변경
-		let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell") as? MdayCell!
+		let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell") as? MdayCell
 		
 		//데이터 소스에 저장된 값을 각 레이블 변수에 할당
-		cell?.movieNm?.text = row.movieNm
-		cell?.rank?.text = row.rank
-		cell?.openDt?.text = row.openDt
-		
-		
-		if Int(row.rankInten!)! > 0 {
-			cell?.rankInten?.textColor = UIColor.red
-			cell?.rankInten?.text = "▲ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
-		}else if Int(row.rankInten!)! < 0 {
-			cell?.rankInten?.textColor = UIColor.blue
-			cell?.rankInten?.text = "▼ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
-		}else {
-			cell?.rankInten?.textColor = UIColor.gray
-			cell?.rankInten?.text = "0 / 누적: \(row.audiAcc!)명"
-		}
-		
-		if row.rankOldAndNew == "NEW" {
-			cell?.rankOldAndNew?.textColor = UIColor.red
-			
-		}else if row.rankOldAndNew == "OLD" {
-			cell?.rankOldAndNew?.textColor = UIColor.blue
-		}else {
-			cell?.rankOldAndNew?.textColor = UIColor.gray
-		}
-		cell?.rankOldAndNew?.text = row.rankOldAndNew
-		
+//        cell?.movieNm?.text = row.movieNm
+//        cell?.rank?.text = row.rank
+//        cell?.openDt?.text = row.openDt
+//        
+//        
+//        if Int(row.rankInten!)! > 0 {
+//            cell?.rankInten?.textColor = UIColor.red
+//            cell?.rankInten?.text = "▲ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
+//        }else if Int(row.rankInten!)! < 0 {
+//            cell?.rankInten?.textColor = UIColor.blue
+//            cell?.rankInten?.text = "▼ \(row.rankInten!) / 누적: \(row.audiAcc!)명"
+//        }else {
+//            cell?.rankInten?.textColor = UIColor.gray
+//            cell?.rankInten?.text = "0 / 누적: \(row.audiAcc!)명"
+//        }
+//        
+//        if row.rankOldAndNew == "NEW" {
+//            cell?.rankOldAndNew?.textColor = UIColor.red
+//            
+//        }else if row.rankOldAndNew == "OLD" {
+//            cell?.rankOldAndNew?.textColor = UIColor.blue
+//        }else {
+//            cell?.rankOldAndNew?.textColor = UIColor.gray
+//        }
+//        cell?.rankOldAndNew?.text = row.rankOldAndNew
+//        
 		//구성된 셀을 반환함
 		return cell!
 	}

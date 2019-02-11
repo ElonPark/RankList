@@ -17,15 +17,15 @@ class DetailWebViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
 	@IBOutlet weak var wkUIView: UIView!
 	@IBOutlet weak var progressView: UIProgressView!
 	
-	var wkWV : WKWebView = WKWebView()
+	var wkWV: WKWebView = WKWebView()
 	
 	var canReload : Bool = false
 	
 	//목록에서 음악 데이터를 받을 변수
-	var miz : MusicVO? = nil
+	var miz: MusicVO? = nil
 	
 	//목록에서 영화 데이터를 받을 변수
-	var mvo : MovieVO? = nil
+	var mvo : WeeklyBoxOffice? = nil
 	
 	deinit {
 		self.wkWV.removeObserver(self, forKeyPath: "estimatedProgress")
@@ -35,7 +35,6 @@ class DetailWebViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
 	//뷰가 나타날때 회전상태를 확인하여 크기를 가져옴
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-//		self.checkOrientate()
 	}
 	
 	//뷰가 나타났으면 wk웹뷰의 프레임 크기를 설정한다.

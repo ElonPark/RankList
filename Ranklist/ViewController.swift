@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  IntroViewController.swift
 //  Ranklist
 //
 //  Created by Nebula_MAC on 2016. 1. 8..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class IntroViewController: UIViewController {
 
 	@IBOutlet var infoData: UITextView!
 	

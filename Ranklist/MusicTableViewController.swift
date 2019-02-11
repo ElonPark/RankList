@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-//import RealmSwift
 
 class MusicTableViewController: UITableViewController {
     
@@ -27,14 +26,12 @@ class MusicTableViewController: UITableViewController {
     // MARK: - 초기 화면
 	override func viewDidLoad() {
 		callMusicAPI()
-		
-//		let realm = try? Realm()
-		
-	}//viewDidLoad end
+
+	}
     
-    // MARK: - 세그웨이
+    // MARK: - 세그
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //실행된 세그웨이의 식별자가  segue_rtmdetail이라면
+        //실행된 세그의 식별자가  segue_rtmdetail이라면
         if(segue.identifier == "segue_rtmdetail") {
             //sender 인자를 캐스팅하여  테이블 셀 객체로 변환한다.
             let cell = sender as! MusicCell
@@ -60,14 +57,14 @@ class MusicTableViewController: UITableViewController {
         //영화차트 API를 호출한다.
         callMusicAPI()
 		
-    }//more end
+    }
 	
 	
     /// MARK: - 음악 API
 	func callMusicAPI() {
 		
 		//멜론API 호출을 위한 URI를 생성
-		let apiURI = URL(string:"http://apis.skplanetx.com/melon/charts/realtime?count=20&page=\(self.page)&version=1&appKey=d9d377f1-756e-3bba-b050-0dc459d349e9")
+		let apiURI = URL(string:"http://apis.skplanetx.com/melon/charts/realtime?count=20&page=\(self.page)&version=1&appKey=" + SKPLANET_API_KEY)
 		Alamofire.request(apiURI!)
 			.responseJSON { reponse in
 				switch reponse.result {
@@ -126,7 +123,7 @@ class MusicTableViewController: UITableViewController {
 					self.present(alert, animated: true, completion: nil)
 				}
 		}
-	}//API end
+	}
 	
     // MARK: - 테이블 뷰 구성
 	// MARK: - 테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
@@ -178,4 +175,4 @@ class MusicTableViewController: UITableViewController {
         //구성된 셀을 반환함
         return cell!
     }
-}//class end
+}
