@@ -49,7 +49,7 @@ extension MovieDayTableViewController {
             }
             
             guard let boxOffice = boxOfficeData else { return }
-            self?.list = boxOffice.weeklyBoxOfficeList
+            self?.list = boxOffice.boxOfficeList
             self?.rankday?.text = "조회날짜: \(boxOffice.showRange)"
             self?.movieDayTable.reloadData()
         }
@@ -57,40 +57,6 @@ extension MovieDayTableViewController {
 }
 
 extension MovieDayTableViewController {
-   
-    func setData(to cell: MdayCell, by row: BoxOffice) -> MdayCell {
-        //데이터 소스에 저장된 값을 각 레이블 변수에 할당
-        cell.movieNm.text = row.movieNm
-        cell.rank.text = String(row.rank)
-        cell.openDt.text = row.openDt
-        
-        if row.rankInten > 0 {
-            cell.rankInten.textColor = UIColor.red
-            cell.rankInten.text = "▲ \(row.rankInten) / 누적: \(row.audiAcc)명"
-            
-        } else if row.rankInten < 0 {
-            cell.rankInten.textColor = UIColor.blue
-            cell.rankInten.text = "▼ \(row.rankInten) / 누적: \(row.audiAcc)명"
-            
-        }else {
-            cell.rankInten.textColor = UIColor.gray
-            cell.rankInten.text = "0 / 누적: \(row.audiAcc)명"
-        }
-        
-        if row.rankOldAndNew == "NEW" {
-            cell.rankOldAndNew.textColor = UIColor.red
-            
-        }else if row.rankOldAndNew == "OLD" {
-            cell.rankOldAndNew.textColor = UIColor.blue
-            
-        }else {
-            cell.rankOldAndNew.textColor = UIColor.gray
-        }
-        
-        cell.rankOldAndNew.text = row.rankOldAndNew
-        
-        return cell
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
@@ -98,12 +64,10 @@ extension MovieDayTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //주어진 행에 맞는 데이터 소스를 가져옴
-        let row = list[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell") as! MdayCell
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "dayCell") as! MdayCell
-        
-        cell = setData(to: cell, by: row)
+        let data = list[indexPath.row]
+        cell.setUI(with: data)
         
        return cell
     }

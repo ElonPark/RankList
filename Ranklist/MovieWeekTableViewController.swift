@@ -47,7 +47,7 @@ extension MovieWeekTableViewController {
             }
             
             guard let boxOffice = boxOfficeData else { return }
-            self?.list = boxOffice.weeklyBoxOfficeList
+            self?.list = boxOffice.boxOfficeList
             self?.rankday?.text = "조회날짜: \(boxOffice.showRange)"
             self?.movieWeekTable.reloadData()
         }
@@ -56,35 +56,6 @@ extension MovieWeekTableViewController {
 
 extension MovieWeekTableViewController {
     
-    func setData(to cell: MweekCell, by row: BoxOffice) -> MweekCell {
-        //데이터 소스에 저장된 값을 각 레이블 변수에 할당
-        cell.movieNm.text = row.movieNm
-        cell.rank.text = String(row.rank)
-        cell.openDt.text = row.openDt
-        
-        let numberFomat = NumberFormatter()
-        numberFomat.numberStyle = .decimal
-        cell.audiAcc.text = numberFomat.string(for: row.audiAcc)
-        
-        if row.audiChange > 0.0 {
-            cell.audiChange.textColor = UIColor.red
-            cell.audiChange.text = "▲ \(row.audiChange)%"
-            
-        }else if row.audiChange < 0.0 {
-            cell.audiChange.textColor = UIColor.blue
-            cell.audiChange.text = "▼ \(row.audiChange)%"
-            
-        }else {
-            cell.audiChange.textColor = UIColor.gray
-            cell.audiChange.text = "\(row.audiChange)%"
-        }
-        
-        cell.audiAcc.text = "누적: \(row.audiAcc)명"
-        
-        //구성된 셀을 반환함
-        return cell
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //테이블 뷰 행의 개수를 반환하는 메소드를 재정의한다.
         return list.count
@@ -92,13 +63,14 @@ extension MovieWeekTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        let row = list[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "weekCell") as! MweekCell
+        
+        let data = list[indexPath.row]
+        cell.setUI(with: data)
     
-        var cell = tableView.dequeueReusableCell(withIdentifier: "weekCell") as! MweekCell
-        
-        cell = setData(to: cell, by: row)
-        
         return cell
+        
     }
 }
 

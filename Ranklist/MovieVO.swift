@@ -70,9 +70,9 @@ struct MovieVO {
     let showRange: String
     let yearWeekTime: String
 
-    let weeklyBoxOfficeList: [BoxOffice]
-
-    init(data: Any) {
+    let boxOfficeList: [BoxOffice]
+    
+    init(data: Any, type: BoxOfficeSearchType) {
         let json = JSON(data)
 
         let boxOfficeResult = json["boxOfficeResult"]
@@ -80,7 +80,16 @@ struct MovieVO {
         showRange = boxOfficeResult["showRange"].stringValue
         yearWeekTime = boxOfficeResult["yearWeekTime"].stringValue
 
-        weeklyBoxOfficeList = json["weeklyBoxOfficeList"].arrayValue.map {
+        var key: String {
+            switch type {
+            case .daily:
+                return "dailyBoxOfficeList"
+            case .weekly:
+                return "weeklyBoxOfficeList"
+            }
+        }
+        
+        boxOfficeList = boxOfficeResult[key].arrayValue.map {
             BoxOffice(json: $0)
         }
     }

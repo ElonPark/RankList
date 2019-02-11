@@ -34,6 +34,7 @@
 		33FD46D41E04256600F2198F /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD46D31E04256600F2198F /* TestCase.swift */; };
 		61E1B6CE1E0D12B48AD9DB5E /* Pods_RankWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94070E2A123FD4F307E9EFE6 /* Pods_RankWidget.framework */; };
 		DB20FF75220F51F600CD1847 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF74220F51F600CD1847 /* MovieAPI.swift */; };
+		DB20FF772211B20400CD1847 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF762211B20400CD1847 /* APIError.swift */; };
 		DB49A6AA220EF5FC006FC331 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB49A6A9220EF5FC006FC331 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		99F10ED274DBE8EA39473273 /* Pods-Ranklist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranklist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ranklist/Pods-Ranklist.release.xcconfig"; sourceTree = "<group>"; };
 		A13E46D25B7DEC1747EF45AC /* Pods_Ranklist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranklist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB20FF74220F51F600CD1847 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
+		DB20FF762211B20400CD1847 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		DB49A6A9220EF5FC006FC331 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 				DB49A6A5220EF44C006FC331 /* Music */,
 				DB49A6A6220EF468006FC331 /* Movie */,
 				2F8CC7CB2CF824F807AE206C /* API_Keys.swift */,
+				DB20FF762211B20400CD1847 /* APIError.swift */,
 				335DDEF51C3FCDE900750514 /* AppDelegate.swift */,
 				335DDEF71C3FCDE900750514 /* IntroViewController.swift */,
 				335DDEF91C3FCDE900750514 /* Main.storyboard */,
@@ -262,8 +265,8 @@
 				335DDF301C404BF500750514 /* MovieVO.swift */,
 				DB20FF74220F51F600CD1847 /* MovieAPI.swift */,
 				330EA6A11C43E7070007EF14 /* MdayCell.swift */,
-				330EA6A31C43E7120007EF14 /* MweekCell.swift */,
 				330EA6A51C43E7AA0007EF14 /* MovieDayTableViewController.swift */,
+				330EA6A31C43E7120007EF14 /* MweekCell.swift */,
 				330EA6A71C43E7DB0007EF14 /* MovieWeekTableViewController.swift */,
 			);
 			name = Movie;
@@ -534,6 +537,7 @@
 				335DDF331C404BFD00750514 /* MusicCell.swift in Sources */,
 				DB49A6AA220EF5FC006FC331 /* DateExtension.swift in Sources */,
 				335DDEF81C3FCDE900750514 /* IntroViewController.swift in Sources */,
+				DB20FF772211B20400CD1847 /* APIError.swift in Sources */,
 				DB20FF75220F51F600CD1847 /* MovieAPI.swift in Sources */,
 				330EA6A41C43E7120007EF14 /* MweekCell.swift in Sources */,
 				330EA6A61C43E7AA0007EF14 /* MovieDayTableViewController.swift in Sources */,

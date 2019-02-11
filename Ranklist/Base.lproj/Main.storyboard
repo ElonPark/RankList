@@ -100,7 +100,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="jjk-VA-gCV">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="jjk-VA-gCV">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <subviews>
@@ -240,7 +240,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-u4-CrC">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="411"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-dL-IxR">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
@@ -300,12 +300,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="7ed-Gd-uwZ">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="7ed-Gd-uwZ">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3z1-4i-35j">
-                                    <rect key="frame" x="140.5" y="-9" width="39" height="30"/>
+                                    <rect key="frame" x="140.5" y="7" width="39" height="30"/>
                                     <state key="normal" title="더보기"/>
                                     <connections>
                                         <action selector="more:" destination="9Cb-aJ-bjQ" eventType="touchUpInside" id="0hG-Fh-JD4"/>
@@ -404,13 +404,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="pDu-5q-JEu">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="pDu-5q-JEu">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="조회 날짜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cij-LW-OA1">
                                     <rect key="frame" x="8" y="11" width="304" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -451,7 +451,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf1-xF-jjW">
-                                            <rect key="frame" x="23" y="25" width="37" height="15"/>
+                                            <rect key="frame" x="21" y="25" width="37" height="15"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -467,7 +467,7 @@
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="rf1-xF-jjW" secondAttribute="bottom" constant="14" id="788-y7-We2"/>
                                         <constraint firstItem="rf1-xF-jjW" firstAttribute="top" secondItem="384-XB-Aic" secondAttribute="topMargin" constant="14" id="azM-Ns-bm0"/>
-                                        <constraint firstItem="rf1-xF-jjW" firstAttribute="leading" secondItem="384-XB-Aic" secondAttribute="leadingMargin" constant="7" id="l2Q-8e-HcH"/>
+                                        <constraint firstItem="rf1-xF-jjW" firstAttribute="leading" secondItem="384-XB-Aic" secondAttribute="leadingMargin" constant="5" id="l2Q-8e-HcH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
@@ -539,13 +539,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="gaD-se-XLI">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="gaD-se-XLI">
                             <rect key="frame" x="0.0" y="93" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="조회일자" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eso-30-oBB">
-                                    <rect key="frame" x="8" y="0.0" width="304" height="12"/>
-                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
+                                    <rect key="frame" x="8" y="0.0" width="304" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -586,7 +586,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roF-ax-7CS">
-                                            <rect key="frame" x="25" y="22" width="39" height="21"/>
+                                            <rect key="frame" x="19" y="22" width="39" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="39" id="Zey-q3-BTv"/>
                                             </constraints>
@@ -603,7 +603,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="roF-ax-7CS" firstAttribute="leading" secondItem="jyc-cX-M0r" secondAttribute="leadingMargin" constant="9" id="I3p-JT-vHI"/>
+                                        <constraint firstItem="roF-ax-7CS" firstAttribute="leading" secondItem="jyc-cX-M0r" secondAttribute="leadingMargin" constant="3" id="I3p-JT-vHI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
@@ -737,6 +737,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="OnL-b4-w1Z"/>
         <segue reference="Iuj-6t-RMt"/>
-        <segue reference="ID7-bs-09J"/>
+        <segue reference="Pfm-ON-JfV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,12 +9,6 @@
 import Foundation
 import Alamofire
 
-enum APIError: Error {
-    case none
-    case dateError(String)
-    case urlError(String)
-}
-
 enum BoxOfficeSearchType: String {
     case weekly = "searchWeeklyBoxOfficeList.json"
     case daily = "searchDailyBoxOfficeList.json"
@@ -52,7 +46,7 @@ struct MovieAPI {
             
             switch response.result {
             case .success(let data):
-                boxOffice = MovieVO(data: data)
+                boxOffice = MovieVO(data: data, type: type)
                 
             case .failure(let apiError):
                 print(apiError.localizedDescription)
