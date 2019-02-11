@@ -68,18 +68,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        launchedShortcutItem = nil
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
         
         // If a shortcut was launched, display its information and take the appropriate action
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+        if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             
             launchedShortcutItem = shortcutItem
-            
-            // This will block "performActionForShortcutItem:completionHandler" from being called.
-            shouldPerformAdditionalDelegateHandling = true //false를 true로 바꾸었더니 뷰가 겹치지 않고 잘됨 ???
         }
         
         
@@ -103,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func selectForIdentifier(_ identifier: ShortcutIdentifier) -> Bool {
         
-        guard let vController = self.window?.rootViewController as? ViewController else {
+        guard let vController = self.window?.rootViewController as? IntroViewController else {
             return false
         }
         
