@@ -16,7 +16,7 @@ enum BoxOfficeSearchType: String {
 
 struct MovieAPI {
   
-    static func searchBoxOffice(type: BoxOfficeSearchType, with dateString: String, completion:  @escaping (MovieVO?, Error?) -> Void) {
+    static func searchBoxOffice(type: BoxOfficeSearchType, with dateString: String, completion: @escaping (MovieVO?, Error?) -> Void) {
         var boxOffice: MovieVO?
         var error: Error?
         

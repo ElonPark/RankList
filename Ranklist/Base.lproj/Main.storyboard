@@ -218,8 +218,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="RTmusicTable" destination="iAs-aS-dnj" id="bJE-Ey-e3L"/>
                         <outlet property="moreBtn" destination="GYR-Zv-0aS" id="BIc-FQ-aKG"/>
+                        <outlet property="musicChartTable" destination="iAs-aS-dnj" id="bJE-Ey-e3L"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npf-aW-0ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +230,7 @@
         <!--Title-->
         <scene sceneID="JUc-A5-RW6">
             <objects>
-                <viewController id="r3y-DJ-0dd" customClass="DetailWebViewController" customModule="Ranklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r3y-DJ-0dd" customClass="WebViewController" customModule="Ranklist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="29R-tS-JWy"/>
                         <viewControllerLayoutGuide type="bottom" id="Ffv-Yd-AxA"/>
@@ -242,7 +242,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RD-u4-CrC">
                                 <rect key="frame" x="0.0" y="64" width="320" height="411"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-dL-IxR">
+                                    <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qT-dL-IxR">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                                     </progressView>
                                 </subviews>
@@ -388,7 +388,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="moreBtn" destination="3z1-4i-35j" id="AEC-Sd-7lX"/>
-                        <outlet property="newMusicTable" destination="fmy-0d-mrL" id="yFl-yQ-SaX"/>
+                        <outlet property="newAlbumsTable" destination="fmy-0d-mrL" id="yFl-yQ-SaX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qrl-lq-upb" userLabel="First Responder" sceneMemberID="firstResponder"/>

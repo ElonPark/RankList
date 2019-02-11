@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F8CCA5EC20EAE05389C75E8 /* API_Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CC7CB2CF824F807AE206C /* API_Keys.swift */; };
 		322F6DA4BE1C0E20B005921C /* Pods_Ranklist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13E46D25B7DEC1747EF45AC /* Pods_Ranklist.framework */; };
-		330EA6A21C43E7070007EF14 /* MdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330EA6A11C43E7070007EF14 /* MdayCell.swift */; };
-		330EA6A41C43E7120007EF14 /* MweekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330EA6A31C43E7120007EF14 /* MweekCell.swift */; };
-		330EA6A61C43E7AA0007EF14 /* MovieDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330EA6A51C43E7AA0007EF14 /* MovieDayTableViewController.swift */; };
-		330EA6A81C43E7DB0007EF14 /* MovieWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330EA6A71C43E7DB0007EF14 /* MovieWeekTableViewController.swift */; };
 		3322618C1DF9A7FC00ADF27D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3322618B1DF9A7FC00ADF27D /* NotificationCenter.framework */; };
 		3322618F1DF9A7FC00ADF27D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3322618E1DF9A7FC00ADF27D /* TodayViewController.swift */; };
 		332261921DF9A7FD00ADF27D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332261901DF9A7FD00ADF27D /* MainInterface.storyboard */; };
@@ -23,19 +19,24 @@
 		335DDEFD1C3FCDE900750514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335DDEFC1C3FCDE900750514 /* Assets.xcassets */; };
 		335DDF0B1C3FCDE900750514 /* RanklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF0A1C3FCDE900750514 /* RanklistTests.swift */; };
 		335DDF161C3FCDE900750514 /* RanklistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF151C3FCDE900750514 /* RanklistUITests.swift */; };
-		335DDF311C404BF500750514 /* MovieVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF301C404BF500750514 /* MovieVO.swift */; };
-		335DDF331C404BFD00750514 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF321C404BFD00750514 /* MusicCell.swift */; };
-		335DDF371C404C1B00750514 /* MusicVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF361C404C1B00750514 /* MusicVO.swift */; };
-		335DDF391C4170DA00750514 /* MusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF381C4170DA00750514 /* MusicTableViewController.swift */; };
-		335DDF5A1C42916200750514 /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF591C42916200750514 /* DetailWebViewController.swift */; };
-		335DDF5C1C42A79D00750514 /* NewMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF5B1C42A79D00750514 /* NewMusicTableViewController.swift */; };
-		335DDF5E1C42A7FC00750514 /* NewreleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF5D1C42A7FC00750514 /* NewreleaseCell.swift */; };
-		33FD46D21E0424D200F2198F /* MusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DDF381C4170DA00750514 /* MusicTableViewController.swift */; };
-		33FD46D41E04256600F2198F /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD46D31E04256600F2198F /* TestCase.swift */; };
 		61E1B6CE1E0D12B48AD9DB5E /* Pods_RankWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94070E2A123FD4F307E9EFE6 /* Pods_RankWidget.framework */; };
-		DB20FF75220F51F600CD1847 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF74220F51F600CD1847 /* MovieAPI.swift */; };
 		DB20FF772211B20400CD1847 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF762211B20400CD1847 /* APIError.swift */; };
-		DB49A6AA220EF5FC006FC331 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB49A6A9220EF5FC006FC331 /* DateExtension.swift */; };
+		DB20FF7C2211D13600CD1847 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF7B2211D13600CD1847 /* DateExtension.swift */; };
+		DB20FF842211D14100CD1847 /* MweekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF7E2211D14100CD1847 /* MweekCell.swift */; };
+		DB20FF852211D14100CD1847 /* MdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF7F2211D14100CD1847 /* MdayCell.swift */; };
+		DB20FF862211D14100CD1847 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF802211D14100CD1847 /* MovieAPI.swift */; };
+		DB20FF872211D14100CD1847 /* MovieWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF812211D14100CD1847 /* MovieWeekTableViewController.swift */; };
+		DB20FF882211D14100CD1847 /* MovieVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF822211D14100CD1847 /* MovieVO.swift */; };
+		DB20FF892211D14100CD1847 /* MovieDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF832211D14100CD1847 /* MovieDayTableViewController.swift */; };
+		DB20FF912211D14700CD1847 /* MusicVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF8B2211D14700CD1847 /* MusicVO.swift */; };
+		DB20FF922211D14700CD1847 /* NewMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF8C2211D14700CD1847 /* NewMusicTableViewController.swift */; };
+		DB20FF932211D14700CD1847 /* MusicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF8D2211D14700CD1847 /* MusicAPI.swift */; };
+		DB20FF942211D14700CD1847 /* MusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF8E2211D14700CD1847 /* MusicTableViewController.swift */; };
+		DB20FF952211D14700CD1847 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF8F2211D14700CD1847 /* MusicCell.swift */; };
+		DB20FF962211D14700CD1847 /* NewreleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF902211D14700CD1847 /* NewreleaseCell.swift */; };
+		DB20FF992211D14E00CD1847 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF982211D14E00CD1847 /* WebViewController.swift */; };
+		DB20FF9B2211F21F00CD1847 /* WKUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF9A2211F21F00CD1847 /* WKUIDelegate.swift */; };
+		DB20FF9D2211F24A00CD1847 /* WKNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20FF9C2211F24A00CD1847 /* WKNavigationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,10 +82,6 @@
 		1DA361EB5CB9B9752BA9B28C /* Pods-Ranklist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranklist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ranklist/Pods-Ranklist.debug.xcconfig"; sourceTree = "<group>"; };
 		1ED08A72514F272DFE9577EF /* Pods-RankWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RankWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RankWidget/Pods-RankWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		2F8CC7CB2CF824F807AE206C /* API_Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_Keys.swift; sourceTree = "<group>"; };
-		330EA6A11C43E7070007EF14 /* MdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MdayCell.swift; sourceTree = "<group>"; };
-		330EA6A31C43E7120007EF14 /* MweekCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MweekCell.swift; sourceTree = "<group>"; };
-		330EA6A51C43E7AA0007EF14 /* MovieDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDayTableViewController.swift; sourceTree = "<group>"; };
-		330EA6A71C43E7DB0007EF14 /* MovieWeekTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieWeekTableViewController.swift; sourceTree = "<group>"; };
 		3322618A1DF9A7FC00ADF27D /* RankWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RankWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3322618B1DF9A7FC00ADF27D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		3322618E1DF9A7FC00ADF27D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -103,20 +100,26 @@
 		335DDF111C3FCDE900750514 /* RanklistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RanklistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		335DDF151C3FCDE900750514 /* RanklistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanklistUITests.swift; sourceTree = "<group>"; };
 		335DDF171C3FCDE900750514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		335DDF301C404BF500750514 /* MovieVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieVO.swift; sourceTree = "<group>"; };
-		335DDF321C404BFD00750514 /* MusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
-		335DDF361C404C1B00750514 /* MusicVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVO.swift; sourceTree = "<group>"; };
-		335DDF381C4170DA00750514 /* MusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewController.swift; sourceTree = "<group>"; };
-		335DDF591C42916200750514 /* DetailWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
-		335DDF5B1C42A79D00750514 /* NewMusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMusicTableViewController.swift; sourceTree = "<group>"; };
-		335DDF5D1C42A7FC00750514 /* NewreleaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewreleaseCell.swift; sourceTree = "<group>"; };
-		33FD46D31E04256600F2198F /* TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCase.swift; path = Ranklist/TestCase.swift; sourceTree = "<group>"; };
 		94070E2A123FD4F307E9EFE6 /* Pods_RankWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RankWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F10ED274DBE8EA39473273 /* Pods-Ranklist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ranklist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ranklist/Pods-Ranklist.release.xcconfig"; sourceTree = "<group>"; };
 		A13E46D25B7DEC1747EF45AC /* Pods_Ranklist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ranklist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB20FF74220F51F600CD1847 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		DB20FF762211B20400CD1847 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		DB49A6A9220EF5FC006FC331 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		DB20FF7B2211D13600CD1847 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		DB20FF7E2211D14100CD1847 /* MweekCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MweekCell.swift; sourceTree = "<group>"; };
+		DB20FF7F2211D14100CD1847 /* MdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MdayCell.swift; sourceTree = "<group>"; };
+		DB20FF802211D14100CD1847 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
+		DB20FF812211D14100CD1847 /* MovieWeekTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieWeekTableViewController.swift; sourceTree = "<group>"; };
+		DB20FF822211D14100CD1847 /* MovieVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieVO.swift; sourceTree = "<group>"; };
+		DB20FF832211D14100CD1847 /* MovieDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDayTableViewController.swift; sourceTree = "<group>"; };
+		DB20FF8B2211D14700CD1847 /* MusicVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVO.swift; sourceTree = "<group>"; };
+		DB20FF8C2211D14700CD1847 /* NewMusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMusicTableViewController.swift; sourceTree = "<group>"; };
+		DB20FF8D2211D14700CD1847 /* MusicAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicAPI.swift; sourceTree = "<group>"; };
+		DB20FF8E2211D14700CD1847 /* MusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewController.swift; sourceTree = "<group>"; };
+		DB20FF8F2211D14700CD1847 /* MusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		DB20FF902211D14700CD1847 /* NewreleaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewreleaseCell.swift; sourceTree = "<group>"; };
+		DB20FF982211D14E00CD1847 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		DB20FF9A2211F21F00CD1847 /* WKUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKUIDelegate.swift; sourceTree = "<group>"; };
+		DB20FF9C2211F24A00CD1847 /* WKNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKNavigationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +185,6 @@
 				335DDF091C3FCDE900750514 /* RanklistTests */,
 				335DDF141C3FCDE900750514 /* RanklistUITests */,
 				335DDEF31C3FCDE800750514 /* Products */,
-				33FD46D31E04256600F2198F /* TestCase.swift */,
 				B9EE55A42AF776CAF723083F /* Pods */,
 				2392DFFC0D3A19E099591BBC /* Frameworks */,
 			);
@@ -202,10 +204,10 @@
 		335DDEF41C3FCDE800750514 /* Ranklist */ = {
 			isa = PBXGroup;
 			children = (
-				DB49A6A8220EF5E0006FC331 /* Extension */,
-				DB49A6A7220EF47E006FC331 /* WebView */,
-				DB49A6A5220EF44C006FC331 /* Music */,
-				DB49A6A6220EF468006FC331 /* Movie */,
+				DB20FF7A2211D13600CD1847 /* Extensions */,
+				DB20FF7D2211D14100CD1847 /* Movie */,
+				DB20FF8A2211D14700CD1847 /* Music */,
+				DB20FF972211D14E00CD1847 /* webView */,
 				2F8CC7CB2CF824F807AE206C /* API_Keys.swift */,
 				DB20FF762211B20400CD1847 /* APIError.swift */,
 				335DDEF51C3FCDE900750514 /* AppDelegate.swift */,
@@ -247,45 +249,48 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DB49A6A5220EF44C006FC331 /* Music */ = {
+		DB20FF7A2211D13600CD1847 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				335DDF361C404C1B00750514 /* MusicVO.swift */,
-				335DDF321C404BFD00750514 /* MusicCell.swift */,
-				335DDF381C4170DA00750514 /* MusicTableViewController.swift */,
-				335DDF5D1C42A7FC00750514 /* NewreleaseCell.swift */,
-				335DDF5B1C42A79D00750514 /* NewMusicTableViewController.swift */,
+				DB20FF7B2211D13600CD1847 /* DateExtension.swift */,
 			);
-			name = Music;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DB49A6A6220EF468006FC331 /* Movie */ = {
+		DB20FF7D2211D14100CD1847 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				335DDF301C404BF500750514 /* MovieVO.swift */,
-				DB20FF74220F51F600CD1847 /* MovieAPI.swift */,
-				330EA6A11C43E7070007EF14 /* MdayCell.swift */,
-				330EA6A51C43E7AA0007EF14 /* MovieDayTableViewController.swift */,
-				330EA6A31C43E7120007EF14 /* MweekCell.swift */,
-				330EA6A71C43E7DB0007EF14 /* MovieWeekTableViewController.swift */,
+				DB20FF822211D14100CD1847 /* MovieVO.swift */,
+				DB20FF802211D14100CD1847 /* MovieAPI.swift */,
+				DB20FF7E2211D14100CD1847 /* MweekCell.swift */,
+				DB20FF812211D14100CD1847 /* MovieWeekTableViewController.swift */,
+				DB20FF7F2211D14100CD1847 /* MdayCell.swift */,
+				DB20FF832211D14100CD1847 /* MovieDayTableViewController.swift */,
 			);
-			name = Movie;
+			path = Movie;
 			sourceTree = "<group>";
 		};
-		DB49A6A7220EF47E006FC331 /* WebView */ = {
+		DB20FF8A2211D14700CD1847 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				335DDF591C42916200750514 /* DetailWebViewController.swift */,
+				DB20FF8B2211D14700CD1847 /* MusicVO.swift */,
+				DB20FF8D2211D14700CD1847 /* MusicAPI.swift */,
+				DB20FF8F2211D14700CD1847 /* MusicCell.swift */,
+				DB20FF8E2211D14700CD1847 /* MusicTableViewController.swift */,
+				DB20FF902211D14700CD1847 /* NewreleaseCell.swift */,
+				DB20FF8C2211D14700CD1847 /* NewMusicTableViewController.swift */,
 			);
-			name = WebView;
+			path = Music;
 			sourceTree = "<group>";
 		};
-		DB49A6A8220EF5E0006FC331 /* Extension */ = {
+		DB20FF972211D14E00CD1847 /* webView */ = {
 			isa = PBXGroup;
 			children = (
-				DB49A6A9220EF5FC006FC331 /* DateExtension.swift */,
+				DB20FF9A2211F21F00CD1847 /* WKUIDelegate.swift */,
+				DB20FF982211D14E00CD1847 /* WebViewController.swift */,
+				DB20FF9C2211F24A00CD1847 /* WKNavigationDelegate.swift */,
 			);
-			name = Extension;
+			path = webView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,23 +539,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				335DDF331C404BFD00750514 /* MusicCell.swift in Sources */,
-				DB49A6AA220EF5FC006FC331 /* DateExtension.swift in Sources */,
 				335DDEF81C3FCDE900750514 /* IntroViewController.swift in Sources */,
+				DB20FF7C2211D13600CD1847 /* DateExtension.swift in Sources */,
+				DB20FF942211D14700CD1847 /* MusicTableViewController.swift in Sources */,
+				DB20FF932211D14700CD1847 /* MusicAPI.swift in Sources */,
+				DB20FF912211D14700CD1847 /* MusicVO.swift in Sources */,
+				DB20FF852211D14100CD1847 /* MdayCell.swift in Sources */,
+				DB20FF872211D14100CD1847 /* MovieWeekTableViewController.swift in Sources */,
+				DB20FF962211D14700CD1847 /* NewreleaseCell.swift in Sources */,
+				DB20FF862211D14100CD1847 /* MovieAPI.swift in Sources */,
 				DB20FF772211B20400CD1847 /* APIError.swift in Sources */,
-				DB20FF75220F51F600CD1847 /* MovieAPI.swift in Sources */,
-				330EA6A41C43E7120007EF14 /* MweekCell.swift in Sources */,
-				330EA6A61C43E7AA0007EF14 /* MovieDayTableViewController.swift in Sources */,
-				330EA6A81C43E7DB0007EF14 /* MovieWeekTableViewController.swift in Sources */,
-				335DDF371C404C1B00750514 /* MusicVO.swift in Sources */,
-				335DDF311C404BF500750514 /* MovieVO.swift in Sources */,
-				335DDF5E1C42A7FC00750514 /* NewreleaseCell.swift in Sources */,
 				335DDEF61C3FCDE900750514 /* AppDelegate.swift in Sources */,
-				335DDF5C1C42A79D00750514 /* NewMusicTableViewController.swift in Sources */,
-				335DDF391C4170DA00750514 /* MusicTableViewController.swift in Sources */,
-				330EA6A21C43E7070007EF14 /* MdayCell.swift in Sources */,
-				335DDF5A1C42916200750514 /* DetailWebViewController.swift in Sources */,
+				DB20FF9B2211F21F00CD1847 /* WKUIDelegate.swift in Sources */,
 				2F8CCA5EC20EAE05389C75E8 /* API_Keys.swift in Sources */,
+				DB20FF992211D14E00CD1847 /* WebViewController.swift in Sources */,
+				DB20FF952211D14700CD1847 /* MusicCell.swift in Sources */,
+				DB20FF922211D14700CD1847 /* NewMusicTableViewController.swift in Sources */,
+				DB20FF842211D14100CD1847 /* MweekCell.swift in Sources */,
+				DB20FF882211D14100CD1847 /* MovieVO.swift in Sources */,
+				DB20FF9D2211F24A00CD1847 /* WKNavigationDelegate.swift in Sources */,
+				DB20FF892211D14100CD1847 /* MovieDayTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,8 +567,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				335DDF0B1C3FCDE900750514 /* RanklistTests.swift in Sources */,
-				33FD46D21E0424D200F2198F /* MusicTableViewController.swift in Sources */,
-				33FD46D41E04256600F2198F /* TestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

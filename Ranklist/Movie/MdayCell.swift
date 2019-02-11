@@ -45,7 +45,7 @@ class MdayCell: UITableViewCell {
         case _ where boxOffice.rankInten > 0:
             rankInten.textColor = UIColor.red
             rankInten.text = "▲ \(boxOffice.rankInten) / 누적: \(audiAcc)명"
-            
+        
         case _ where boxOffice.rankInten < 0:
             rankInten.textColor = UIColor.blue
             rankInten.text = "▼ \(boxOffice.rankInten) / 누적: \(audiAcc)명"
