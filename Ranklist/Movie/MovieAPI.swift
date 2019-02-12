@@ -15,14 +15,14 @@ enum BoxOfficeSearchType: String {
 }
 
 struct MovieAPI {
-  
+    
     static func searchBoxOffice(type: BoxOfficeSearchType, with dateString: String, completion: @escaping (MovieVO?, Error?) -> Void) {
         var boxOffice: MovieVO?
         var error: Error?
         
         var queryItems = [
             URLQueryItem(name: "key", value: KOBIS_OPEN_API_KEY),
-            URLQueryItem(name: "targetDt", value: dateString),
+            URLQueryItem(name: "targetDt", value: dateString)
         ]
         
         if type == .weekly {

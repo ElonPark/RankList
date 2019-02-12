@@ -15,7 +15,7 @@ class MusicCell: UITableViewCell {
     @IBOutlet var artist: UILabel!
     @IBOutlet var albumName: UILabel!
     @IBOutlet var pastRank: UILabel!
-	@IBOutlet weak var albumImg: UIImageView!
+    @IBOutlet weak var albumImg: UIImageView!
     
     private func setSongNameLabel(with song: Song) {
         if song.isTitleSong {
@@ -39,7 +39,7 @@ class MusicCell: UITableViewCell {
             pastRank.textColor = UIColor.blue
             rank = song.currentRank - song.pastRank
             pastRank?.text = "▼\(rank)"
-        
+            
         default:
             pastRank.textColor = UIColor.gray
             pastRank.text = "-"

@@ -62,7 +62,7 @@ extension WebViewController {
         loadRequest(by: album)
         loadRequest(by: movie)
     }
-
+    
     ///프로그레스 업데이트
     func updateProgress(to progressBar: UIProgressView, by value: Double) {
         let progress = Float(value)
@@ -85,37 +85,37 @@ extension WebViewController {
 }
 
 class WebViewController: UIViewController {
-	
-	@IBOutlet var navibar: UINavigationItem!
-	
-	@IBOutlet weak var wkUIView: UIView!
-	@IBOutlet weak var progressView: UIProgressView!
-	
-	lazy var webView = WKWebView()
-	
+    
+    @IBOutlet var navibar: UINavigationItem!
+    
+    @IBOutlet weak var wkUIView: UIView!
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    lazy var webView = WKWebView()
+    
     ///프로그레스 옵저버 토큰
     var progressObserveToken: NSKeyValueObservation? = nil
-	
-	//목록에서 음악 데이터를 받을 변수
-	var music: Song? = nil
+    
+    //목록에서 음악 데이터를 받을 변수
+    var music: Song? = nil
     var album: Album? = nil
-	
-	//목록에서 영화 데이터를 받을 변수
-	var movie: BoxOffice? = nil
-	
-	override func viewDidLoad() {
-		automaticallyAdjustsScrollViewInsets = false
-
-		webView.uiDelegate = self
-		webView.navigationDelegate = self
-		
-		wkUIView.insertSubview(webView, belowSubview: progressView)
-		webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		setProgressObserver()
+    
+    //목록에서 영화 데이터를 받을 변수
+    var movie: BoxOffice? = nil
+    
+    override func viewDidLoad() {
+        automaticallyAdjustsScrollViewInsets = false
+        
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        
+        wkUIView.insertSubview(webView, belowSubview: progressView)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        setProgressObserver()
         
         loadRequest()
-	}
-
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = wkUIView.bounds

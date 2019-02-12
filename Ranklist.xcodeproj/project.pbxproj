@@ -287,8 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				DB20FF9A2211F21F00CD1847 /* WKUIDelegate.swift */,
-				DB20FF982211D14E00CD1847 /* WebViewController.swift */,
 				DB20FF9C2211F24A00CD1847 /* WKNavigationDelegate.swift */,
+				DB20FF982211D14E00CD1847 /* WebViewController.swift */,
 			);
 			path = webView;
 			sourceTree = "<group>";

@@ -10,7 +10,7 @@ import UIKit
 
 
 extension MovieWeekTableViewController {
-
+    
     func previousSundayDateString() -> String? {
         guard let sunday = Date.today().previous(.sunday, considerToday: true) else { return nil }
         let dateFormatter = DateFormatter()
@@ -57,39 +57,39 @@ extension MovieWeekTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "weekCell") as! MweekCell
         
         let data = list[indexPath.row]
         cell.setUI(with: data)
-    
+        
         return cell
         
     }
 }
 
 class MovieWeekTableViewController: UITableViewController {
-	
-	@IBOutlet var movieWeekTable: UITableView!
-	@IBOutlet var rankday: UILabel!
-	
-	var list = [BoxOffice]()
-
-	override func viewDidLoad() {
+    
+    @IBOutlet var movieWeekTable: UITableView!
+    @IBOutlet var rankday: UILabel!
+    
+    var list = [BoxOffice]()
+    
+    override func viewDidLoad() {
         if let sunday = previousSundayDateString() {
             callMovieAPI(with: sunday)
         } else {
             errorAlert(APIError.dateError("날짜가 올바르지 않습니다."))
         }
-	}
-
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard segue.identifier == "segue_weekdetail" else { return }
-		guard  let cell = sender as? MweekCell else { return }
-		guard let path = movieWeekTable.indexPath(for: cell) else { return }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "segue_weekdetail" else { return }
+        guard  let cell = sender as? MweekCell else { return }
+        guard let path = movieWeekTable.indexPath(for: cell) else { return }
         
-		let detailWebView = segue.destination as? WebViewController
-		detailWebView?.movie = list[path.row]
-	}
+        let detailWebView = segue.destination as? WebViewController
+        detailWebView?.movie = list[path.row]
+    }
 }

@@ -66,31 +66,31 @@ extension MovieDayTableViewController {
         let data = list[indexPath.row]
         cell.setUI(with: data)
         
-       return cell
+        return cell
     }
 }
 
 class MovieDayTableViewController: UITableViewController {
-	
-	@IBOutlet var movieDayTable: UITableView!
-	@IBOutlet var rankday: UILabel!
-	
-	var list = [BoxOffice]()
-	
-	override func viewDidLoad() {
+    
+    @IBOutlet var movieDayTable: UITableView!
+    @IBOutlet var rankday: UILabel!
+    
+    var list = [BoxOffice]()
+    
+    override func viewDidLoad() {
         if let yesterday = yesterdayString() {
             callMovieAPI(with: yesterday)
         } else {
             errorAlert(APIError.dateError("날짜가 올바르지 않습니다."))
         }
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "segue_daydetail" else { return }
         guard  let cell = sender as? MdayCell else { return }
         guard let path = movieDayTable.indexPath(for: cell) else { return }
         
         let detailWebView = segue.destination as? WebViewController
         detailWebView?.movie = list[path.row]
-	}
+    }
 }

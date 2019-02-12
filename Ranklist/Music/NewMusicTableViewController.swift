@@ -61,18 +61,18 @@ extension NewMusicTableViewContrller {
 }
 
 class NewMusicTableViewContrller : UITableViewController {
-	
-	@IBOutlet var newAlbumsTable: UITableView!
-	@IBOutlet var moreBtn: UIButton!
-	
+    
+    @IBOutlet var newAlbumsTable: UITableView!
+    @IBOutlet var moreBtn: UIButton!
+    
     let totalCount = 100
     
-	/// 테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수
-	var list = [Album]()
-	
-	///현재까지 읽어온 데이터 페이지 정보
-	var page = 1
-	
+    /// 테이블 뷰를 구성할 리스트 데이터를 담을 배열 변수
+    var list = [Album]()
+    
+    ///현재까지 읽어온 데이터 페이지 정보
+    var page = 1
+    
     // MARK: - 더보기 버튼
     @IBAction func more(_ sender: AnyObject) {
         //더 많은 노래 목록을 불러오기 위해
@@ -82,14 +82,14 @@ class NewMusicTableViewContrller : UITableViewController {
         callMusicAPI(with: page)
     }
     
-	// MARK: - VC 초기화
-	override func viewDidLoad() {
-		callMusicAPI(with: page)
-	}
-	
-	// MARK: - 세그
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // MARK: - VC 초기화
+    override func viewDidLoad() {
+        callMusicAPI(with: page)
+    }
+    
+    // MARK: - 세그
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //실행된 세그웨이의 식별자가  segue_rtmdetail이라면
         guard segue.identifier == "segue_newdetail" else { return }
         //sender 인자를 캐스팅하여  테이블 셀 객체로 변환한다.

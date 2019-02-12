@@ -58,7 +58,7 @@ extension MusicTableViewController {
         let data = list[indexPath.row]
         
         cell.setData(with: data)
-      
+        
         //구성된 셀을 반환함
         return cell
     }
@@ -88,9 +88,9 @@ class MusicTableViewController: UITableViewController {
     }
     
     // MARK: - 초기 화면
-	override func viewDidLoad() {
-		callMusicAPI(with: page)
-	}
+    override func viewDidLoad() {
+        callMusicAPI(with: page)
+    }
     
     // MARK: - 세그
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
